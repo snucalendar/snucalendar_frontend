@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Event = () => {
+const Event = (props) => {
   return (
-    <div>Event</div>
+    <div>
+      title : {props.title} / content : {props.content}
+    </div>
   );
 }
 

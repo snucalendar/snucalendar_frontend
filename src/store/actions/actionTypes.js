@@ -1,3 +1,7 @@
+//calendar actions
+export const GET_CALENDAR_DATE = 'GET_CALENDAR_DATE';
+export const GET_CALENDAR_MONTH = 'GET_CALENDAR_MONTH';
+
 //event actions
 export const GET_EVENT = 'GET_EVENT';
 export const GET_EVENT_LIST = 'GET_EVENT_LIST';

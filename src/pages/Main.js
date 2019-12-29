@@ -1,36 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Calendar from '../components/Calendar';
-import Event from '../components/Event';
 
 import * as actionCreators from '../store/actions/index';
 
 export const mapDispatchToProps = (dispatch) => ({
-  getEventList: () => dispatch(actionCreators.getEventList()),
+  getCalendarDate: (year, month, date) => dispatch(actionCreators.getCalendarDate(year, month, date)),
+  getCalendarMonth: (year, month) => dispatch(actionCreators.getCalendarMonth(year, month)),
 });
 
 export const mapStateToProps = (state) => ({
-  event_list: state.evl.event_list,
+  date_calendar: state.cd.date_calendar,
+  month_calendar: state.cd.month_calendar,
 })
 
 export class Main extends Component {
   state = {
-    event_list : [],
+    date_calendar: {},
+    month_calendar: [],
   }
 
 
   componentDidMount() {
-    this.props.getEventList()
+    this.props.getCalendarMonth(2019, 12)
       .then(() => {
         this.setState({
-          event_list: this.props.event_list
-            .map((ev, index) => (
-              <Event
-                key = {index}
-                title = {ev.title}
-                content = {ev.content}
-              />
-            ))
+          month_calendar: this.props.month_calendar
+          .map((ev, index) => (
+            <Calendar
+              key = {index}
+              year = {ev.year}
+              month = {ev.month}
+              date = {ev.date}
+              events = {ev.events}
+            />
+          ))
         })
       })
   }
@@ -39,8 +43,7 @@ export class Main extends Component {
     return (
       <div>
         <h1>Main</h1>
-        <Calendar /> <br />
-        {this.state.event_list}
+        {this.state.month_calendar}
       </div>
     )
   }

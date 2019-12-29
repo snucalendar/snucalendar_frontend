@@ -8,6 +8,7 @@ import EventReducer from './reducers/EventReducer';
 import UserReducer from './reducers/UserReducer';
 import PostListReducer from './reducers/PostListReducer';
 import PostReducer from './reducers/PostReducer';
+import CalendarReducer from './reducers/CalendarReducer';
 
 const rootReducer = combineReducers({
   us: UserReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   ev: EventReducer,
   psl: PostListReducer,
   ps: PostReducer,
+  cd: CalendarReducer,
 });
 
 const logger = () => (next) => (action) => {

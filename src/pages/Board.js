@@ -5,7 +5,8 @@ import Post from '../components/Post';
 import * as actionCreators from '../store/actions/index';
 
 export const mapDispatchToProps = (dispatch) => ({
-  getPostList: () => dispatch(actionCreators.getPostList()),
+  getPostDue: () => dispatch(actionCreators.getPostDue()),
+  getPostPost: () => dispatch(actionCreators.getPostPost())
 });
 
 export const mapStateToProps = (state) => ({

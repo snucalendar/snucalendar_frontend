@@ -10,9 +10,10 @@ export {
 } from './event';
 
 export {
+    addPost,
     getPost,
-    getPostList,
-
+    getPostDue,
+    getPostPost,
 } from './post';
 
 export {

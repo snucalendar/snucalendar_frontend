@@ -10,7 +10,9 @@ export const GET_MYEVENT_LIST = 'GET_MYEVENT_LIST';
 //post actions
 export const ADD_POST = 'ADD_POST';
 export const GET_POST = 'GET_POST';
-export const GET_POST_LIST = 'GET_POST_LIST';
+export const GET_POST_LIST_DUE = 'GET_POST_LIST_DUE';
+export const GET_POST_LIST_POST = 'GET_POST_LIST_POST';
+
 
 //user actions
 export const LOGIN = 'LOGIN';

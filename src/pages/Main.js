@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Calendar from '../components/Calendar';
+import Event from '../components/Event';
 
 import * as actionCreators from '../store/actions/index';
 
@@ -18,6 +19,7 @@ export class Main extends Component {
   state = {
     date_calendar: {},
     month_calendar: [],
+    event_list: [],
   }
 
 
@@ -34,9 +36,22 @@ export class Main extends Component {
               date = {ev.date}
               events = {ev.events}
             />
+          )),
+          event_list: this.props.month_calendar
+          .filter((event) => (1<= event.date && event.date<= 7))
+          .map((date) => { return date.events; })
+          .map((ev, index) => (
+            <Event
+              title = {ev.title}
+              year = {ev.year}
+              month = {ev.month}
+              date = {ev.date}
+              time = {ev.time}
+              events = {ev.events}
+            />
           ))
         })
-      })
+        })
   }
 
   render(){

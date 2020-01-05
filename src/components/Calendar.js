@@ -1,20 +1,29 @@
 import React from 'react';
-import Event from './Event';
+import Day from './Day';
 
 const Calendar = (props) => {
-  const calendar_event = props.events.map((ev, index) => (
-      <Event
-        key = {index}
-        title = {ev.title}
-      />
-    ))
+  const days = props.days.map((day, index) => (
+    <Day
+      key={index}
+      date={day.date}
+      events={day.events}
+    />
+  ));
 
-  return (
+  return ( // 달의 첫 날이 시작하는 요일을 알아야 할 듯...? 그것만 fr을 다르게 주게
     <div>
-      year: {props.year},
-      month: {props.month},
-      date: {props.date}
-      {calendar_event}
+      <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr'}}>
+        <div>일</div>
+        <div>월</div>
+        <div>화</div>
+        <div>수</div>
+        <div>목</div>
+        <div>금</div>
+        <div>토</div>
+      </div>
+      <div style={{display: 'grid', gridTemplateRows: '1fr 1fr 1fr 1fr 1fr', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr'}}>
+        {days}
+      </div>
     </div>
   );
 }

@@ -12,40 +12,30 @@ export const mapDispatchToProps = (dispatch) => ({
 export const mapStateToProps = (state) => ({
   date_calendar: state.cd.date_calendar,
   month_calendar: state.cd.month_calendar,
-})
+});
 
 export class Main extends Component {
   state = {
     date_calendar: {},
     month_calendar: [],
-  }
-
+  };
 
   componentDidMount() {
     this.props.getCalendarMonth(2019, 12)
       .then(() => {
         this.setState({
           month_calendar: this.props.month_calendar
-          .map((ev, index) => (
-            <Calendar
-              key = {index}
-              year = {ev.year}
-              month = {ev.month}
-              date = {ev.date}
-              events = {ev.events}
-            />
-          ))
-        })
-      })
+        });
+      });
   }
 
-  render(){
+  render() {
     return (
       <div>
         <h1>Main</h1>
-        {this.state.month_calendar}
+        <Calendar days={this.props.month_calendar} />
       </div>
-    )
+    );
   }
 }
 

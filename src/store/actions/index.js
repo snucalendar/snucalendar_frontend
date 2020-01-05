@@ -10,6 +10,8 @@ export {
 } from './event';
 
 export {
+    getPost,
+    getPostList,
 
 } from './post';
 

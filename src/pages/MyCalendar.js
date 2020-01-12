@@ -7,16 +7,18 @@ import * as actionCreators from '../store/actions/index';
 
 export const mapDispatchToProps = (dispatch) => ({
   checklogIn: () => dispatch(actionCreators.checklogIn()),
+  getCalendarMonth: (year, month) => dispatch(actionCreators.getCalendarMonth(year, month)), // 내가 등록한 이벤트만 가져올 수 있는 api가 필요함
   getMyEventList: () => dispatch(actionCreators.getMyEventList()),
-  
 });
 
 export const mapStateToProps = (state) => ({
+  month_calendar: state.cd.month_calendar,
   my_event_list: state.evl.myEvent_list,
 })
 
 export class MyCalendar extends Component {
   state = {
+    month_calendar: [],
     my_event_list : [],
   }
 
@@ -36,26 +38,23 @@ export class MyCalendar extends Component {
                   />
                 ))
             })
-          })
+          });
+        this.props.getCalendarMonth(2019, 12).then(() => {
+          this.setState({ month_calendar: this.props.month_calendar });
+        })
       })
-      /*
-      .catch(() => {
-        window.location.assign('/');
-      });
-      */
-    
   }
 
   render(){
     return (
       <div>
         <h1>MyCalendar</h1>
-        <Calendar />
+        <Calendar days={this.props.month_calendar} />
         {this.state.my_event_list}
       </div>
     );
   }
-  
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyCalendar);

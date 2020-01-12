@@ -5,12 +5,12 @@ import Post from '../components/Post';
 import * as actionCreators from '../store/actions/index';
 
 export const mapDispatchToProps = (dispatch) => ({
-  getPostDue: () => dispatch(actionCreators.getPostDue()),
-  getPostPost: () => dispatch(actionCreators.getPostPost())
+  getPostDue: (start, interval) => dispatch(actionCreators.getPostDue(start, interval)),
+  getPostPost: (start, interval) => dispatch(actionCreators.getPostPost(start, interval))
 });
 
 export const mapStateToProps = (state) => ({
-  post_list: state.psl.post_list,
+  post_list: state.psl.post_list_post,
 })
 
 export class Board extends Component {
@@ -19,7 +19,7 @@ export class Board extends Component {
   }
 
   componentDidMount() {
-    this.props.getPostList()
+    this.props.getPostPost(0, 1)
       .then(() => {
         this.setState({
           post_list: this.props.post_list
@@ -29,7 +29,7 @@ export class Board extends Component {
               type = {ps.type}
               author = {ps.author}
               title = {ps.title}
-              preview = {ps.preview}
+              content = {ps.content}
             />
           ))
         })

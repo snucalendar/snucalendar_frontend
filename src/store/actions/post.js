@@ -17,7 +17,7 @@ export const getPost_ = (post) => ({
     target: post,
 })
 
-export const getPost = (id) => (dispatch) => axios.get(`http://13.59.128.56:8000/api/post/${id}/`)
+export const getPost = (id) => (dispatch) => axios.get(`http://13.59.128.56:8000/api/posting/${id}/`)
     .then((res) => {
         dispatch(getPost_(res.data));
     });
@@ -27,7 +27,7 @@ export const getPostDue_ = (post_list_dueDate) => ({
     target: post_list_dueDate,
 })
 
-export const getPostDue = (start, interval) => (dispatch) => axios.get(`http://13.59.128.56:8000/api/post/duedate/${start}/${interval}`)
+export const getPostDue = (start, interval) => (dispatch) => axios.get(`http://13.59.128.56:8000/api/posting/duedate/${start}/${interval}`)
     .then((res) => {
         dispatch(getPostDue_(res.data));
     });
@@ -37,7 +37,7 @@ export const getPostPost_ = (post_list_postDate) => ({
     target: post_list_postDate,
 })
     
-export const getPostPost = (start, interval) => (dispatch) => axios.get(`http://13.59.128.56:8000/api/post/postdate/${start}/${interval}`)
+export const getPostPost = (start, interval) => (dispatch) => axios.get(`http://13.59.128.56:8000/api/posting/postdate/${start}/${interval}`)
     .then((res) => {
         dispatch(getPostPost_(res.data));
     });

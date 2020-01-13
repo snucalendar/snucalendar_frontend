@@ -36,29 +36,29 @@ export class Main extends Component {
               date = {ev.date}
               events = {ev.events}
             />
-          )),
-          event_list: this.props.month_calendar
+          ))
+        })
+        this.setState({
+        event_list: this.props.month_calendar
           .filter((event) => (1<= event.date && event.date<= 7))
-          .map((date) => { return date.events; })
+          .map(date => date.events
           .map((ev, index) => (
             <Event
               title = {ev.title}
-              year = {ev.year}
-              month = {ev.month}
               date = {ev.date}
               time = {ev.time}
-              events = {ev.events}
             />
-          ))
+          )))
         })
-        })
-  }
+  })
+}
 
   render(){
     return (
       <div>
         <h1>Main</h1>
         {this.state.month_calendar}
+        {this.state.event_list}
       </div>
     )
   }

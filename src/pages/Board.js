@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Post from '../components/Post';
 import AddPost from '../components/addPost';
-import { Button, Tab, Header, Modal, Icon, Segment, List } from 'semantic-ui-react';
+import { Button, Tab, Header, Modal, Icon, List } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './Board.css';
 

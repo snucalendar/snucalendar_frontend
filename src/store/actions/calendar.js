@@ -16,10 +16,9 @@ export const getCalendarMonth_ = (month) => ({
     type: actionTypes.GET_CALENDAR_MONTH,
     target: month,
 });
-    
+
 export const getCalendarMonth = (year, month) => (dispatch) => axios.get(`http://13.59.128.56:8000/api/calendar/${year}/${month}/`)
     .then((res) => {
         dispatch(getCalendarMonth_(res.data));
         return res;
     });
-    

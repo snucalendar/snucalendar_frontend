@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Post from '../components/Post';
 import AddPost from '../components/addPost';
-import { Button, Header, Modal, Icon, Segment, List } from 'semantic-ui-react';
+import { Button, Tab, Header, Modal, Icon, Segment, List } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './Board.css';
 
@@ -14,12 +14,15 @@ export const mapDispatchToProps = (dispatch) => ({
 });
 
 export const mapStateToProps = (state) => ({
-  post_list: state.psl.post_list_post,
+  post_list_post: state.psl.post_list_post,
+  post_list_due: state.psl.post_list_due,
 })
+
 
 export class Board extends Component {
   state = {
-    postList : [],
+    postList_post : [],
+    postList_due: [],
     open: false,
   }
 
@@ -29,17 +32,34 @@ export class Board extends Component {
 
   close = () => this.setState({ open: false })
 
-  array = [
-    {id : 0, "title": 'post_test_1', "content" : 'test_content_1'},
-    {id : 1, "title": 'post_test_2', "content" : 'test_content_2'},
+  array_1 = [
+    {id : 0, "title": '1등 게시글', "content" : 'test_content_1'},
+    {id : 1, "title": '2등 게시글', "content" : 'test_content_2'},
+  ]
+
+  array_2 = [
+    {id : 0, "title": '1등 임박', "content" : 'test_content_1'},
+    {id : 1,"title": '2등 임박', "content" : 'test_content_2'},
   ]
   
   componentDidMount() {
     this.props.getPostPost(1, 2)
       .then(() => {
-        console.log(this.array)
         this.setState({
-          postList: this.array
+          postList_post: this.array_1
+          .map((ps, index) =>  (
+            <Post
+              key = {index}
+              title = {ps.title}
+              content = {ps.content}
+            />
+          )),
+        }); 
+      })
+      this.props.getPostDue(1, 2)
+      .then(() => {
+        this.setState({
+          postList_due: this.array_2
           .map((ps, index) =>  (
             <Post
               key = {index}
@@ -49,7 +69,27 @@ export class Board extends Component {
           )),
         });
       })
+
   }
+
+  panes = [
+    {
+      menuItem: '게시순',
+      render: () => <Tab.Pane attached={false}>
+                      <List divided relaxed>
+                        {this.state.postList_post}
+                      </List>
+                    </Tab.Pane>,
+    },
+    {
+      menuItem: '기한순',
+      render: () => <Tab.Pane attached={false}>
+                      <List divided relaxed>
+                        {this.state.postList_due}
+                      </List>
+                    </Tab.Pane>,
+    },
+  ]
 
   render(){
     const { open, closeOnDimmerClick } = this.state
@@ -63,14 +103,9 @@ export class Board extends Component {
               +
             </Button>
             <Header.Subheader>행사 홍보글을 올릴 수 있어요!</Header.Subheader>
-
           </Header.Content>
         </Header>
-        <Segment attached>
-          <List divided relaxed>
-            {this.state.postList}
-          </List>
-        </Segment>
+        <Tab menu={{ secondary: true, pointing: true }} panes={this.panes} />
         <br />
 
         <Modal

@@ -1,8 +1,12 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    post_list_due: [],
-    post_list_post: [],
+    post_list_due: [
+        {},
+    ],
+    post_list_post: [
+        {},
+    ],
 };
 
 const PostListReducer = (state = initialState, action = actionTypes.DEFAULT) => {

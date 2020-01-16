@@ -1,9 +1,21 @@
 import React from 'react';
+import { Header } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
 
-const Header = () => {
+const HeaderPart = () => {
   return (
-    <div>Header(검색창)</div>
+    <div>
+      <Header as='h1' dividing textAlign='center'>
+        <Header.Content>
+            Header Part
+        <Header.Subheader>Links</Header.Subheader>
+        </Header.Content>
+      </Header>
+      <br />
+
+    </div>
+
   );
 }
 
-export default Header;
+export default HeaderPart;

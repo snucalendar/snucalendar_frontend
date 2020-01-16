@@ -20,9 +20,9 @@ const currentMonth = today.getMonth() + 1;
 export class Main extends Component {
   state = {
     month_calendar: [],
-    event_list: [],
     currentYear,
     currentMonth,
+    event_list: [],
   };
 
   componentDidMount() {
@@ -31,6 +31,20 @@ export class Main extends Component {
         this.setState({
           month_calendar: this.props.month_calendar
         });
+
+        this.setState({
+          event_list: this.props.month_calendar
+            .filter((event) => (1<= event.date && event.date<= 7))
+            .map(date => date.events
+            .map((ev, index) => (
+              <Event
+                title = {ev.title}
+                date = {ev.date}
+                time = {ev.time}
+              />
+            )))
+        });
+        
       });
   }
 
@@ -54,22 +68,9 @@ export class Main extends Component {
           currentMonth: newMonth,
           month_calendar: this.props.month_calendar
         });
-        
-        this.setState({
-          event_list: this.props.month_calendar
-            .filter((event) => (1<= event.date && event.date<= 7))
-            .map(date => date.events
-            .map((ev, index) => (
-              <Event
-                title = {ev.title}
-                date = {ev.date}
-                time = {ev.time}
-              />
-            )))
-        });
-        
-      });
+      });    
   }
+  
 
   render() {
     return ( // 아예 Calendar에서 날짜와 이벤트를 받아오는 게 나을 수도...?

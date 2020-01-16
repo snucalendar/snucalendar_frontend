@@ -21,21 +21,28 @@ const modalStyle = {
 
 class DayEventList extends Component {
     state = {
-        activeEvent: null,
+        clickedEvent: null,
     }
 
-    handleClick = (e) => {
-        this.setState({ activeEvent: e })
+    toggleEventDetail = (e) => {
+        e.stopPropagation();
+        if (e.target.id === 'background') {
+            this.setState({ clickedEvent: null });
+        } else if (e.target.dataset.eid) {
+            e.target.parentNode.style.display = 'none';
+            this.setState({ clickedEvent: this.props.events.find((event) => event.id === Number(e.target.dataset.eid)) });
+        }
     }
 
     render() {
-        const events = this.props.events.map((event, i) => <div key={i} onClick={this.handleClick}>{event.title}</div>);
+        const events = this.props.events.map((event) => <div key={event.id} data-eid={event.id} onClick={this.toggleEventDetail}>{event.title}</div>);
+        const modal = this.state.clickedEvent ? <EventDetail event={this.state.clickedEvent} toggleEventDetail={this.toggleEventDetail} /> : null;
         return (
             <div id="background" style={backgroundStyle} onClick={this.props.toggleDayEventList}>
-                <div style={modalStyle}>
+                <div style={modalStyle} onClick={this.toggleEventDetail}>
                     {events}
                 </div>
-                <EventDetail event={1} />
+                {modal}
             </div>
         );
     }

@@ -6,7 +6,7 @@ import * as actionCreators from '../store/actions/index';
 
 export const mapDispatchToProps = (dispatch) => ({
   getCalendarMonth: (year, month) => dispatch(actionCreators.getCalendarMonth(year, month)),
-  getMyEventList: () => dispatch(actionCreators.getCalendarMonth()),
+  getMyEventList: () => dispatch(actionCreators.getMyEventList()),
 });
 
 export const mapStateToProps = (state) => ({

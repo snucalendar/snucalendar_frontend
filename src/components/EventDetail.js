@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class EventDetailModal extends Component {
+class EventDetail extends Component {
     render() {
         return (
             <div>{this.props.event.title}</div>
@@ -8,4 +8,4 @@ class EventDetailModal extends Component {
     }
 }
 
-export default EventDetailModal;
+export default EventDetail;

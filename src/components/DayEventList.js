@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import EventDetailModal from './EventDetailModal';
+import EventDetail from './EventDetail';
 
 const backgroundStyle = {
     position: 'absolute',
@@ -35,7 +35,7 @@ class DayEventList extends Component {
                 <div style={modalStyle}>
                     {events}
                 </div>
-                <EventDetailModal event={1} />
+                <EventDetail event={1} />
             </div>
         );
     }

@@ -31,7 +31,7 @@ class DayEventList extends Component {
     render() {
         const events = this.props.events.map((event, i) => <div key={i} onClick={this.handleClick}>{event.title}</div>);
         return (
-            <div id="background" style={backgroundStyle} onClick={this.props.handleClick}>
+            <div id="background" style={backgroundStyle} onClick={this.props.toggleDayEventList}>
                 <div style={modalStyle}>
                     {events}
                 </div>

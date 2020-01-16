@@ -7,12 +7,13 @@ class Day extends Component {
   }
 
   toggleDayEventList = (e) => {
+    e.stopPropagation();
     this.setState({ isClicked: e.target.id === 'background' ? false : true })
   }
 
   render() {
     const events = this.props.events.map((e, i) => <li key={i}>{e.title}</li>);
-    const modal = this.state.isClicked ? <DayEventList events={this.props.events} toggleDayEventList={this.toggleDayEventList} /> : null;
+    const modal = this.state.isClicked && this.props.events.length ? <DayEventList events={this.props.events} toggleDayEventList={this.toggleDayEventList} /> : null;
     return (
       <div onClick={this.toggleDayEventList}>
         {this.props.date}일

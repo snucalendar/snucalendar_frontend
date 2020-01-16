@@ -36,7 +36,7 @@ class DayEventList extends Component {
 
     render() {
         const events = this.props.events.map((event) => <div key={event.id} data-eid={event.id} onClick={this.toggleEventDetail}>{event.title}</div>);
-        const modal = this.state.clickedEvent ? <EventDetail event={this.state.clickedEvent} toggleEventDetail={this.toggleEventDetail} /> : null;
+        const modal = this.state.clickedEvent ? <EventDetail event={this.state.clickedEvent} removeEventDetail={this.props.toggleDayEventList} /> : null;
         return (
             <div id="background" style={backgroundStyle} onClick={this.props.toggleDayEventList}>
                 <div style={modalStyle} onClick={this.toggleEventDetail}>

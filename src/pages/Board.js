@@ -18,13 +18,13 @@ export const mapStateToProps = (state) => ({
   post_list_due: state.psl.post_list_due,
 })
 
-
 export class Board extends Component {
   state = {
     postList_post : [],
     postList_due: [],
     open: false,
   }
+  
 
   closeConfigShow = (closeOnDimmerClick) => () => {
     this.setState({ closeOnDimmerClick, open: true })
@@ -33,13 +33,13 @@ export class Board extends Component {
   close = () => this.setState({ open: false })
 
   array_1 = [
-    {id : 0, "title": '1등 게시글', "content" : 'test_content_1'},
-    {id : 1, "title": '2등 게시글', "content" : 'test_content_2'},
+    {id : 0, "title": '1등 게시글', "content" : 'test_content_1', "event_date": "2020/01/31"},
+    {id : 1, "title": '2등 게시글', "content" : 'test_content_2', "event_date": "2020/01/26"},
   ]
 
   array_2 = [
-    {id : 0, "title": '1등 임박', "content" : 'test_content_1'},
-    {id : 1,"title": '2등 임박', "content" : 'test_content_2'},
+    {id : 0, "title": '1등 임박', "content" : 'test_content_1', "event_date": "2020/01/26"},
+    {id : 1,"title": '2등 임박', "content" : 'test_content_2', "event_date": "2020/01/31"},
   ]
   
   componentDidMount() {
@@ -52,6 +52,7 @@ export class Board extends Component {
               key = {index}
               title = {ps.title}
               content = {ps.content}
+              event_date = {ps.event_date}
             />
           )),
         }); 
@@ -65,6 +66,7 @@ export class Board extends Component {
               key = {index}
               title = {ps.title}
               content = {ps.content}
+              event_date = {ps.event_date}
             />
           )),
         });

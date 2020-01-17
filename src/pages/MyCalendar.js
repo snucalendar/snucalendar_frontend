@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Calendar from '../components/Calendar';
 import Event from '../components/Event';
-import { Button, Tab, Header, Modal, Icon, Segment, List } from 'semantic-ui-react';
+import { Tab, List } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 import * as actionCreators from '../store/actions/index';

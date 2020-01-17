@@ -88,7 +88,7 @@ export class MyCalendar extends Component {
 
   render(){
     return (
-      <div>
+      <div style={{'marginTop' : 30}}>
         <h1>MyCalendar</h1>
         <Calendar days={this.props.month_calendar} />
         <Tab menu={{ secondary: true, pointing: true }} panes={this.panes} />

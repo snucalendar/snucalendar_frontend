@@ -79,7 +79,7 @@ export class Main extends Component {
 
   render() {
     return ( // 아예 Calendar에서 날짜와 이벤트를 받아오는 게 나을 수도...?
-      <div>
+      <div style={{'marginTop' : 30}}>
         <h1>Main</h1>
         <Calendar month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} /> <br />
         {this.state.event_list}

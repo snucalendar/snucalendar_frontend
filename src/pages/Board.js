@@ -96,7 +96,7 @@ export class Board extends Component {
   render(){
     const { open, closeOnDimmerClick } = this.state
     return (
-      <div className="Board">
+      <div className="Board" >
         <Header as='h2' attached='top'>
           <Icon name='clipboard list' />
           <Header.Content>

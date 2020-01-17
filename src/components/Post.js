@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, Image, Grid } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
-import image01 from '../images/iu.jpg'
+import image01 from '../images/iu.jpg';
 import '../pages/Board.css';
 
 const Post = (props) => {

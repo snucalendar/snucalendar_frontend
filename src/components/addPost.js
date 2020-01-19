@@ -4,18 +4,12 @@ import { Input, Form } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 export class AddPost extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            file: null,
-            title: '',
-            content: '',
-            fileName: '',
-        }
-        this.handleFormSubmit = this.handleFormSubmit.bind(this)
-        this.handleFileChange = this.handleFileChange.bind(this)
-        this.handleValueChange = this.handleValueChange.bind(this)
-        this.addPost = this.addPost.bind(this)
+    
+    state = {
+        file : null,
+        title : '',
+        content : '',
+        filename : ''
     }
 
     handleFormSubmit(e) {
@@ -40,7 +34,7 @@ export class AddPost extends Component {
     }
         
     addPost() {
-        const url = `/api/posting/<int:id>`;
+        const url = `api/posting/`;
         const formData = new FormData();
         formData.append('image', this.state.file)
         formData.append('title', this.state.title)

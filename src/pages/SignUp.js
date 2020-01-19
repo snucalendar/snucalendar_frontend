@@ -6,10 +6,6 @@ import {
 import 'semantic-ui-css/semantic.min.css';
 import { NavLink } from 'react-router-dom';
 import * as actionCreators from '../store/actions/index';
-import axios from 'axios';
-
-let token = localStorage.getItem("token")
-axios.defaults.headers.common['Authorization'] = token
 
 export class SignupPage extends Component {
   state = {
@@ -124,4 +120,3 @@ export const mapDispatchToProps = (dispatch) => ({
 
 
 export default connect(null, mapDispatchToProps)(SignupPage);
-// export default SignupPage;

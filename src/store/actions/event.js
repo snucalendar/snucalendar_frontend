@@ -6,7 +6,7 @@ export const getEvent_ = (event) => ({
     target: event,
 });
 
-export const getEvent = (id) => (dispatch) => axios.get(`http://13.59.128.56:8000/api/events/${id}/`)
+export const getEvent = (id) => (dispatch) => axios.get(`/api/events/${id}/`)
     .then((res) => {
         dispatch(getEvent_(res.data));
         return res;
@@ -17,7 +17,7 @@ export const getEventList_ = (event_list) => ({
     target: event_list,
 });
 
-export const getEventList = () => (dispatch) => axios.get('http://13.59.128.56:8000/api/events/')
+export const getEventList = () => (dispatch) => axios.get('/api/events/')
     .then((res) => {
         dispatch(getEventList_(res.data));
     });
@@ -27,7 +27,7 @@ export const getMyEventList_ = (myEvent_list) => ({
     target: myEvent_list,
 })
 
-export const getMyEventList = () => (dispatch) => axios.get('http://13.59.128.56:8000/api/myevents/')
+export const getMyEventList = () => (dispatch) => axios.get('/api/myevents/')
     .then((res) => {
         dispatch(getMyEventList_(res.data));
     });

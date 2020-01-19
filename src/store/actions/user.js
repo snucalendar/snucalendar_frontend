@@ -1,10 +1,15 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
+import CSRFToken from '../../csrftoken';
+let token = localStorage.getItem("token")
+axios.defaults.headers.common['Authorization'] = token
 
 const signUp_ = () => ({ type: actionTypes.SIGNUP });
 export const signUp = (username, email, password) => {
-  const calendarUser = { username, email, password };
-  return (dispatch) => axios.post(`http://13.59.128.56:8000/api/signup/`, calendarUser)
+  const calendarUser = {username, email, password };
+  return (dispatch) => (
+    axios.post('http://localhost:8000/api/signup/', calendarUser
+  ))
     .then((res) => {
       dispatch(signUp_());
       return res;
@@ -14,7 +19,13 @@ export const signUp = (username, email, password) => {
 const logIn_ = () => ({ type: actionTypes.LOGIN });
 export const logIn = (email, password) => {
   const calendarUser = { email, password };
-  return (dispatch) => axios.post(`http://13.59.128.56:8000/api/login/`, calendarUser)
+  return (dispatch) => axios.post(
+    
+    //'http://13.59.128.56:8000/api/login/', 
+    'http://localhost:8000/api/login/',
+    calendarUser,
+    {contentType: "application/x-www-form-urlencoded; charset=UTF-8"}
+    )
     .then((res) => {
       dispatch(logIn_());
       return res;

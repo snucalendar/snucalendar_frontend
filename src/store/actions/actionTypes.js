@@ -6,6 +6,7 @@ export const GET_CALENDAR_MONTH = 'GET_CALENDAR_MONTH';
 export const GET_EVENT = 'GET_EVENT';
 export const GET_EVENT_LIST = 'GET_EVENT_LIST';
 export const GET_MYEVENT_LIST = 'GET_MYEVENT_LIST';
+export const PARTICIPATE_EVENT = 'PARTICIPATE_EVENT';
 
 //post actions
 export const ADD_POST = 'ADD_POST';

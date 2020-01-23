@@ -31,3 +31,13 @@ export const getMyEventList = () => (dispatch) => axios.get('http://13.59.128.56
     .then((res) => {
         dispatch(getMyEventList_(res.data));
     });
+
+export const participateEvent_ = (id) => ({
+    type: actionTypes.PARTICIPATE_EVENT,
+    // target: event,
+});
+
+export const participateEvent = (id, type) => (dispatch) => axios.post(`/api/events/${id}/participate`, type)
+    .then((res) => {
+        dispatch(participateEvent_(res.data));
+    });

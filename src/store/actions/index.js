@@ -7,6 +7,7 @@ export {
     getEvent,
     getEventList,
     getMyEventList,
+    participateEvent,
 } from './event';
 
 export {

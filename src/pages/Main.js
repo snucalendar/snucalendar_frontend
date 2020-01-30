@@ -16,7 +16,6 @@ export const mapStateToProps = (state) => ({
 const today = new Date();
 const currentYear = today.getFullYear();
 const currentMonth = today.getMonth() + 1;
-const firstDay = new Date(currentYear, currentMonth-1, 1).getDay();
 
 export class Main extends Component {
   state = {
@@ -79,7 +78,7 @@ export class Main extends Component {
   }
 
   render() {
-    console.log(document.cookies)
+    const firstDay = new Date(this.state.currentYear, this.state.currentMonth-1, 1).getDay();
     return ( // 아예 Calendar에서 날짜와 이벤트를 받아오는 게 나을 수도...?
       <div style={{'marginTop' : 30}}>
         <h1>Main</h1>

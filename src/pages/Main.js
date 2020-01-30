@@ -24,6 +24,9 @@ export class Main extends Component {
     event_list: [],
     currentYear,
     currentMonth,
+    event_list: [],
+    //eventClicked:false,
+    //modalEvent: event,
   };
 
   componentDidMount() {
@@ -32,9 +35,28 @@ export class Main extends Component {
         this.setState({
           month_calendar: this.props.month_calendar
         });
+
+        this.setState({
+          event_list: this.props.month_calendar
+            .filter((event) => (1<= event.date && event.date<= 7))
+            .map(date => date.events
+            .map((ev, index) => (
+              <Event
+                title = {ev.title}
+                date = {ev.date}
+                time = {ev.time}
+            //    eventClicked = {this.manageModal}
+              />
+            )))
+        });
+
       });
   }
-
+/*
+  manageModal = (title, event) => {
+    //do something to make modal
+  }
+*/
   changeMonth = (e) => {
     const increment = e.target.dataset.increment === 'plus' ? 1 : -1;
     let newYear = this.state.currentYear;
@@ -77,6 +99,8 @@ export class Main extends Component {
         })
       })
   }
+
+
 
   render() {
     return ( // 아예 Calendar에서 날짜와 이벤트를 받아오는 게 나을 수도...?

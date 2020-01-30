@@ -42,7 +42,7 @@ export class Post extends Component {
     </Button>
   </Modal.Actions>
   </Modal>
-  
+
       <List.Item onClick={this.closeConfigShow(true, false)}>
         <Grid columns='three'>
           <Grid.Row height={1}>

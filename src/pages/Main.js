@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Calendar from '../components/Calendar';
 import Event from '../components/Event';
+import EventDetail from ''
+
 
 import * as actionCreators from '../store/actions/index';
 
@@ -23,6 +25,8 @@ export class Main extends Component {
     currentYear,
     currentMonth,
     event_list: [],
+    //eventClicked:false,
+    //modalEvent: event,
   };
 
   componentDidMount() {
@@ -41,13 +45,18 @@ export class Main extends Component {
                 title = {ev.title}
                 date = {ev.date}
                 time = {ev.time}
+            //    eventClicked = {this.manageModal}
               />
             )))
         });
-        
+
       });
   }
-
+/*
+  manageModal = (title, event) => {
+    //do something to make modal
+  }
+*/
   changeMonth = (e) => {
     const increment = e.target.dataset.increment === 'plus' ? 1 : -1;
     let newYear = this.state.currentYear;
@@ -68,9 +77,10 @@ export class Main extends Component {
           currentMonth: newMonth,
           month_calendar: this.props.month_calendar
         });
-      });    
+      });
   }
-  
+
+
 
   render() {
     return ( // 아예 Calendar에서 날짜와 이벤트를 받아오는 게 나을 수도...?
@@ -78,6 +88,7 @@ export class Main extends Component {
         <h1>Main</h1>
         <Calendar month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} />
         {this.state.event_list}
+        // {this.state.eventClicked} && <EventDetail even={this.state.modalEvent} />
       </div>
     );
   }

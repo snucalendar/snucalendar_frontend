@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Event = (props) => {
+
   const style1 = {
     backgroundColor: 'white',
     padding: '12px',
@@ -8,7 +9,7 @@ const Event = (props) => {
     fontSize: '12px',
     borderTop: 'solid',
   };
-  
+
   const style2 = {
     backgroundColor: 'white',
     padding: '12px',
@@ -16,7 +17,6 @@ const Event = (props) => {
     fontSize: '10px',
     borderBottom: 'solid',
   };
-
 
   return (
     <div>

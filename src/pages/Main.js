@@ -16,6 +16,7 @@ export const mapStateToProps = (state) => ({
 const today = new Date();
 const currentYear = today.getFullYear();
 const currentMonth = today.getMonth() + 1;
+const firstDay = new Date(currentYear, currentMonth-1, 1).getDay();
 
 export class Main extends Component {
   state = {

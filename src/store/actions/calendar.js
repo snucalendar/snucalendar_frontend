@@ -22,4 +22,3 @@ export const getCalendarMonth = (year, month) => (dispatch) => axios.get(`/api/c
         dispatch(getCalendarMonth_(res.data));
         return res;
     });
-    

@@ -7,6 +7,8 @@ const Calendar = (props) => {
       key={index}
       date={day.date}
       events={day.events}
+      isFirst={ index === 0 ? true : false }
+      firstDay={props.firstDay}
     />
   ));
 

@@ -15,7 +15,7 @@ export const mapDispatchToProps = (dispatch) => ({
     }
 
     clickListener = () => {
-      if (this.state.value != '') {
+      if (this.state.value !== '') {
         this.props.onSearch(this.state.value);
         this.setState({ ...this.state, value: '' });
         this.props.history.push('./search');

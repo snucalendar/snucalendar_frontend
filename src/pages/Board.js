@@ -5,7 +5,6 @@ import AddPost from '../components/addPost';
 import { Button, Tab, Header, Modal, Icon, List } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './Board.css';
-import PostModal from './PostModal';
 
 import * as actionCreators from '../store/actions/index';
 
@@ -35,7 +34,7 @@ export class Board extends Component {
   close = () => this.setState({ open: false })
   
   componentDidMount() {
-   this.props.getPostPost(1, 1)
+   this.props.getPostPost(1, 10)
    .then(() => {
      var post_list_post = JSON.parse(this.props.post_list_post)
      this.setState({
@@ -52,7 +51,7 @@ export class Board extends Component {
        )),
      }); 
    })
-   this.props.getPostDue(1, 1)
+   this.props.getPostDue(1, 10)
    .then(() => {
      var post_list_due = JSON.parse(this.props.post_list_due)
      this.setState({

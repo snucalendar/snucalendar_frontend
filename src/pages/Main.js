@@ -16,7 +16,6 @@ export const mapStateToProps = (state) => ({
 const today = new Date();
 const currentYear = today.getFullYear();
 const currentMonth = today.getMonth() + 1;
-const firstDay = new Date(currentYear, currentMonth-1, 1).getDay();
 
 export class Main extends Component {
   state = {
@@ -93,7 +92,11 @@ export class Main extends Component {
         var NowDate = Number(now.getDate());
         this.setState({
           event_list: this.props.month_calendar
+<<<<<<< HEAD
           .filter((event)=> (NowDate <= event.date && event.date <= NowDate+6))
+=======
+          .filter((event)=> (1 <= event.date && event.date <= 30))
+>>>>>>> 0f6515394203d3b34451989b5a3b615f31b64326
           .map((date) => date.events
           .map((ev, index) => (
             <Event
@@ -109,11 +112,11 @@ export class Main extends Component {
 
 
   render() {
-    console.log(document.cookies)
+    const firstDay = new Date(this.state.currentYear, this.state.currentMonth-1, 1).getDay();
     return ( // 아예 Calendar에서 날짜와 이벤트를 받아오는 게 나을 수도...?
       <div style={{'marginTop' : 30}}>
         <h1>Main</h1>
-        <Calendar month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} /> <br />
+        <Calendar month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} firstDay={firstDay} /> <br />
         {this.state.event_list}
       </div>
     );

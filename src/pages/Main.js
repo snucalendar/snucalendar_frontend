@@ -36,9 +36,11 @@ export class Main extends Component {
           month_calendar: this.props.month_calendar
         });
 
+        var now =new Date();
+        var NowDate = Number(now.getDate());
         this.setState({
           event_list: this.props.month_calendar
-            .filter((event) => (1<= event.date && event.date<= 7))
+            .filter((event) => (NowDate <= event.date && event.date<= NowDate+6))
             .map(date => date.events
             .map((ev, index) => (
               <Event
@@ -86,14 +88,18 @@ export class Main extends Component {
             />
           ))
         })
+
+        var now =new Date();
+        var NowDate = Number(now.getDate());
         this.setState({
           event_list: this.props.month_calendar
-          .filter((event)=> (1 <= event.date && event.date <= 19))
+          .filter((event)=> (NowDate <= event.date && event.date <= NowDate+6))
           .map((date) => date.events
           .map((ev, index) => (
             <Event
-              key = {index}
               title = {ev.title}
+              date = {ev.date}
+              time = {ev.time}
             />
           )))
         })

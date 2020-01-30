@@ -6,7 +6,7 @@ export const getEvent_ = (event) => ({
     target: event,
 });
 
-export const getEvent = (id) => (dispatch) => axios.get(`http://13.59.128.56:8000/api/events/${id}/`)
+export const getEvent = (id) => (dispatch) => axios.get(`/api/events/${id}/`)
     .then((res) => {
         dispatch(getEvent_(res.data));
         return res;

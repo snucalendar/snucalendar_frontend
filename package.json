@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://13.59.128.56:8000/",
+  "proxy": "http://13.59.128.56:8000",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -17,7 +17,11 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
+<<<<<<< HEAD
     "unfetch": "^4.1.0"
+=======
+    "semantic-ui-react": "^0.88.2"
+>>>>>>> 2dc86bab5cee539ec01c4f650630b492df03c9bb
   },
   "scripts": {
     "start": "react-scripts start",

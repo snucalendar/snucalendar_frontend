@@ -6,10 +6,6 @@ import {
 import 'semantic-ui-css/semantic.min.css';
 import { NavLink, withRouter } from 'react-router-dom';
 import * as actionCreators from '../store/actions/index';
-import axios from 'axios';
-
-let token = localStorage.getItem("token")
-axios.defaults.headers.common['Authorization'] = token
 
 export const mapDispatchToProps = (dispatch) => ({
   logIn: (email, password) => dispatch(actionCreators.logIn(email, password)),

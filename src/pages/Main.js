@@ -78,6 +78,7 @@ export class Main extends Component {
   }
 
   render() {
+    console.log(document.cookies)
     return ( // 아예 Calendar에서 날짜와 이벤트를 받아오는 게 나을 수도...?
       <div style={{'marginTop' : 30}}>
         <h1>Main</h1>

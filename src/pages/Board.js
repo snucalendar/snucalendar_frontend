@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Post from '../components/Post';
-import AddPost from '../components/AddPost';
+import AddPost from '../components/addPost';
 import { Button, Tab, Header, Modal, Icon, List } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './Board.css';
@@ -94,6 +94,7 @@ export class Board extends Component {
     const { open, closeOnDimmerClick } = this.state;
     return (
       <div>
+<<<<<<< HEAD
       <Modal
         open={open}
         closeOnDimmerClick={closeOnDimmerClick}
@@ -132,6 +133,46 @@ export class Board extends Component {
         <br />
       </div>
     </div>
+=======
+        <Modal
+          open={open}
+          closeOnDimmerClick={closeOnDimmerClick}
+          onClose={this.close}
+          style = {{left : 'auto', top : 'auto'}}
+        >
+          <Modal.Header>게시글 추가하기</Modal.Header>
+          <Modal.Content>
+            <AddPost />
+          </Modal.Content>
+          <Modal.Actions>
+            <Button onClick={this.close} negative>
+              나가기
+            </Button>
+            <Button               
+              onClick={this.close}
+              positive
+              labelPosition='right'
+              icon='checkmark'
+              content='완료!'
+            />
+          </Modal.Actions>
+        </Modal>
+        <div className="Board" >
+          <Header as='h2' attached='top'>
+            <Icon name='clipboard list' />
+            <Header.Content>
+              홍보게시판
+              <Button onClick={this.closeConfigShow(true, false)}>
+                +
+              </Button>
+              <Header.Subheader>행사 홍보글을 올릴 수 있어요!</Header.Subheader>
+            </Header.Content>
+          </Header>
+          <Tab menu={{ secondary: true, pointing: true }} panes={this.panes} />
+          <br />
+        </div>
+      </div>
+>>>>>>> 2dc86bab5cee539ec01c4f650630b492df03c9bb
     );
   }
 }

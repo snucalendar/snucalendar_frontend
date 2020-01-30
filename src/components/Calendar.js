@@ -2,6 +2,7 @@ import React from 'react';
 import Day from './Day';
 
 const Calendar = (props) => {
+  console.log(222222, props.firstDay);
   const days = props.days.map((day, index) => (
     <Day
       key={index}

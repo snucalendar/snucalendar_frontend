@@ -73,7 +73,7 @@ export class Main extends Component {
         });
       });
   }
-  
+
   panes = [
     {
       menuItem: '다가오는',
@@ -117,6 +117,11 @@ export class Main extends Component {
   }
 
   render() {
+    const a = this.state.myEvent_list.filter((event) => {
+      const [year, month, day] = event.date.split(':');
+      return year == this.state.currentYear && month == this.state.currentMonth;
+    });
+
     return ( // 아예 Calendar에서 날짜와 이벤트를 받아오는 게 나을 수도...?
       <div style={{'marginTop' : 30}}>
         <h1>Main</h1>

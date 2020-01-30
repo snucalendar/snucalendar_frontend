@@ -7,12 +7,16 @@ export {
     getEvent,
     getEventList,
     getMyEventList,
+    participateEvent,
+    getEventSearch,
 } from './event';
 
 export {
+    addPost,
     getPost,
-    getPostList,
-
+    getPostDue,
+    getPostPost,
+    getImage,
 } from './post';
 
 export {

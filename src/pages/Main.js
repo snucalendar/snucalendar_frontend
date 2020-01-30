@@ -92,11 +92,7 @@ export class Main extends Component {
         var NowDate = Number(now.getDate());
         this.setState({
           event_list: this.props.month_calendar
-<<<<<<< HEAD
-          .filter((event)=> (NowDate <= event.date && event.date <= NowDate+6))
-=======
           .filter((event)=> (1 <= event.date && event.date <= 30))
->>>>>>> 0f6515394203d3b34451989b5a3b615f31b64326
           .map((date) => date.events
           .map((ev, index) => (
             <Event

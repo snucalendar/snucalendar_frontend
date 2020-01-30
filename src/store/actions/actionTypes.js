@@ -5,12 +5,16 @@ export const GET_CALENDAR_MONTH = 'GET_CALENDAR_MONTH';
 //event actions
 export const GET_EVENT = 'GET_EVENT';
 export const GET_EVENT_LIST = 'GET_EVENT_LIST';
+export const GET_EVENT_SEARCH_LIST = 'GET_EVENT_SEARCH_LIST';
 export const GET_MYEVENT_LIST = 'GET_MYEVENT_LIST';
 
 //post actions
 export const ADD_POST = 'ADD_POST';
 export const GET_POST = 'GET_POST';
-export const GET_POST_LIST = 'GET_POST_LIST';
+export const GET_POST_LIST_DUE = 'GET_POST_LIST_DUE';
+export const GET_POST_LIST_POST = 'GET_POST_LIST_POST';
+export const GET_IMAGE = 'GET_IMAGE';
+
 
 //user actions
 export const LOGIN = 'LOGIN';

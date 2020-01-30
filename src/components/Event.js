@@ -1,14 +1,27 @@
 import React from 'react';
 
 const Event = (props) => {
-  var now = new Date();
-  var date = new Date(props.event_date);
-  var distance = date - now;
-  var d = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+  const style1 = {
+    backgroundColor: 'white',
+    padding: '12px',
+    color: 'black',
+    fontSize: '12px',
+    borderTop: 'solid',
+  };
+
+  const style2 = {
+    backgroundColor: 'white',
+    padding: '12px',
+    color: 'gray',
+    fontSize: '10px',
+    borderBottom: 'solid',
+  };
+
   return (
     <div>
-      title : {props.title}
-      D-day: {d}
+      <div style={style1}> {props.title} </div>
+      <div style={style2}> {props.date} , {props.time}</div>
     </div>
   );
 }

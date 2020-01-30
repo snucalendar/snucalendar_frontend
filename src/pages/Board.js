@@ -5,7 +5,6 @@ import AddPost from '../components/addPost';
 import { Button, Tab, Header, Modal, Icon, List } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './Board.css';
-import PostModal from './PostModal';
 
 import * as actionCreators from '../store/actions/index';
 

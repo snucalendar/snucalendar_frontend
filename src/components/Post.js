@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, List, Grid } from 'semantic-ui-react';
+import { Button, Modal, List, Grid, Image } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import '../pages/Board.css';
 import PostModal from '../pages/PostModal';
@@ -8,9 +8,8 @@ import * as actionCreators from '../store/actions/index';
 export class Post extends Component {
   state = {
     open: false,
-    image: '',
   }
-  
+
   closeConfigShow = (closeOnDimmerClick) => () => {
     this.setState({ closeOnDimmerClick, open: true })
   }
@@ -24,7 +23,7 @@ export class Post extends Component {
     var date = new Date(this.props.date);
     var distance = date - now;
     var d = Math.floor(distance / (1000 * 60 * 60 * 24));
-    actionCreators.getImage(this.props.image)
+    var image = actionCreators.getImage(this.props.image)
   return (
     <div style = {{borderBottom: '1px solid #D5D5D5', marginBottom: '15px'}}>
     <Modal
@@ -43,12 +42,12 @@ export class Post extends Component {
     </Button>
   </Modal.Actions>
   </Modal>
-  
+
       <List.Item onClick={this.closeConfigShow(true, false)}>
         <Grid columns='three'>
           <Grid.Row height={1}>
             <Grid.Column width={3} >
-              {this.state.image}
+              <Image src={`http://13.59.128.56:8000/media/${this.props.image}`} />
             </Grid.Column>
             <Grid.Column width={9}>
               <List.Content style={{marginTop:'5px'}}>

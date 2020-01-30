@@ -47,7 +47,7 @@ export const getImage_ = (imageSrc) => ({
     target: imageSrc,
 })
 
-export const getImage = (imageSrc) => (dispatch) => axios.get(`http://13.59.128.56:8000/media/${imageSrc}`)
+export const getImage = (imageSrc) => (dispatch) => axios.get(`/media/${imageSrc}`)
 .then((res) => {
     dispatch(getPostPost_(res.data));
 });

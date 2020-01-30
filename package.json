@@ -17,11 +17,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
-<<<<<<< HEAD
-    "unfetch": "^4.1.0"
-=======
     "semantic-ui-react": "^0.88.2"
->>>>>>> 2dc86bab5cee539ec01c4f650630b492df03c9bb
   },
   "scripts": {
     "start": "react-scripts start",

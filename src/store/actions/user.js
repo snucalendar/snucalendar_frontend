@@ -1,6 +1,5 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
-import CSRFToken from '../../csrftoken';
 let token = localStorage.getItem("token")
 axios.defaults.headers.common['Authorization'] = token
 

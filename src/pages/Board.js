@@ -5,12 +5,14 @@ import AddPost from '../components/AddPost';
 import { Button, Tab, Header, Modal, Icon, List } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './Board.css';
+import PostModal from './PostModal';
 
 import * as actionCreators from '../store/actions/index';
 
 export const mapDispatchToProps = (dispatch) => ({
   getPostDue: (start, interval) => dispatch(actionCreators.getPostDue(start, interval)),
-  getPostPost: (start, interval) => dispatch(actionCreators.getPostPost(start, interval))
+  getPostPost: (start, interval) => dispatch(actionCreators.getPostPost(start, interval)),
+  getEvent: (id) => dispatch(actionCreators.getEvent(id)),
 });
 
 export const mapStateToProps = (state) => ({
@@ -24,54 +26,49 @@ export class Board extends Component {
     postList_due: [],
     open: false,
   }
-  
+
 
   closeConfigShow = (closeOnDimmerClick) => () => {
     this.setState({ closeOnDimmerClick, open: true })
   }
 
   close = () => this.setState({ open: false })
-
-  array_1 = [
-    {id : 0, "title": '1등 게시글', "content" : 'test_content_1', "event_date": "2020/01/31"},
-    {id : 1, "title": '2등 게시글', "content" : 'test_content_2', "event_date": "2020/01/26"},
-  ]
-
-  array_2 = [
-    {id : 0, "title": '1등 임박', "content" : 'test_content_1', "event_date": "2020/01/26"},
-    {id : 1,"title": '2등 임박', "content" : 'test_content_2', "event_date": "2020/01/31"},
-  ]
   
   componentDidMount() {
-    this.props.getPostPost(1, 2)
-      .then(() => {
-        this.setState({
-          postList_post: this.array_1
-          .map((ps, index) =>  (
-            <Post
-              key = {index}
-              title = {ps.title}
-              content = {ps.content}
-              event_date = {ps.event_date}
-            />
-          )),
-        }); 
-      })
-      this.props.getPostDue(1, 2)
-      .then(() => {
-        this.setState({
-          postList_due: this.array_2
-          .map((ps, index) =>  (
-            <Post
-              key = {index}
-              title = {ps.title}
-              content = {ps.content}
-              event_date = {ps.event_date}
-            />
-          )),
-        });
-      })
-
+   this.props.getPostPost(1, 1)
+   .then(() => {
+     var post_list_post = JSON.parse(this.props.post_list_post)
+     this.setState({
+       postList_post: post_list_post
+       .map((ps, index) =>  (
+         <Post
+           key = {index}
+           id = {ps.id}
+           title = {ps.title}
+           content = {ps.content}
+           date = {this.props.getEvent(ps.event).event_date}
+           image = {ps.image}
+         />
+       )),
+     }); 
+   })
+   this.props.getPostDue(1, 1)
+   .then(() => {
+     var post_list_due = JSON.parse(this.props.post_list_due)
+     this.setState({
+       postList_due: post_list_due
+       .map((ps, index) =>  (
+         <Post
+          key = {index}
+          id = {ps.id}
+          title = {ps.title}
+          content = {ps.content}
+          date = {this.props.getEvent(ps.event).event_date}
+          image = {ps.image}
+         />
+       )),
+     });
+   })
   }
 
   panes = [
@@ -94,8 +91,32 @@ export class Board extends Component {
   ]
 
   render(){
-    const { open, closeOnDimmerClick } = this.state
+    const { open, closeOnDimmerClick } = this.state;
     return (
+      <div>
+      <Modal
+        open={open}
+        closeOnDimmerClick={closeOnDimmerClick}
+        onClose={this.close}
+        style = {{left : 'auto', top : 'auto'}}
+      >
+        <Modal.Header>게시글 추가하기</Modal.Header>
+        <Modal.Content>
+          <AddPost />
+        </Modal.Content>
+        <Modal.Actions>
+          <Button onClick={this.close} negative>
+            나가기
+          </Button>
+          <Button               
+            onClick={this.close}
+            positive
+            labelPosition='right'
+            icon='checkmark'
+            content='완료!'
+          />
+        </Modal.Actions>
+      </Modal>
       <div className="Board" >
         <Header as='h2' attached='top'>
           <Icon name='clipboard list' />
@@ -109,31 +130,8 @@ export class Board extends Component {
         </Header>
         <Tab menu={{ secondary: true, pointing: true }} panes={this.panes} />
         <br />
-
-        <Modal
-          open={open}
-          closeOnDimmerClick={closeOnDimmerClick}
-          onClose={this.close}
-        >
-          <Modal.Header>게시글 추가하기</Modal.Header>
-          <Modal.Content>
-            <AddPost />
-          </Modal.Content>
-          <Modal.Actions>
-            <Button onClick={this.close} negative>
-              나가기
-            </Button>
-            <Button               
-              onClick={this.close}
-              positive
-              labelPosition='right'
-              icon='checkmark'
-              content='완료!'
-            />
-          </Modal.Actions>
-        </Modal>
       </div>
-      
+    </div>
     );
   }
 }

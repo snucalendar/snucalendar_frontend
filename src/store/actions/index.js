@@ -7,6 +7,7 @@ export {
     getEvent,
     getEventList,
     getMyEventList,
+    getEventSearch,
 } from './event';
 
 export {
@@ -14,6 +15,7 @@ export {
     getPost,
     getPostDue,
     getPostPost,
+    getImage,
 } from './post';
 
 export {

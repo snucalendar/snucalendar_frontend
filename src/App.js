@@ -7,6 +7,7 @@ import HeaderPart from './components/Header';
 import Main from './pages/Main';
 import MyCalendar from './pages/MyCalendar';
 import Board from './pages/Board';
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/board" component={Board} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/login" component={LogIn} />
+          <Route exact path="/search" component={Search} />
         </Switch>
       </BrowserRouter>
     </div>

@@ -34,7 +34,7 @@ export class Board extends Component {
   close = () => this.setState({ open: false })
   
   componentDidMount() {
-   this.props.getPostPost(1, 1)
+   this.props.getPostPost(1, 10)
    .then(() => {
      var post_list_post = JSON.parse(this.props.post_list_post)
      this.setState({
@@ -51,7 +51,7 @@ export class Board extends Component {
        )),
      }); 
    })
-   this.props.getPostDue(1, 1)
+   this.props.getPostDue(1, 10)
    .then(() => {
      var post_list_due = JSON.parse(this.props.post_list_due)
      this.setState({

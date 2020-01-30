@@ -4,7 +4,6 @@ import { Input, Form } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 export class AddPost extends Component {
-    
     state = {
         file : null,
         title : '',
@@ -12,7 +11,7 @@ export class AddPost extends Component {
         filename : ''
     }
 
-    handleFormSubmit(e) {
+    handleFormSubmit = e => {
         e.preventDefault()
         this.addPost()
             .then((response) => {
@@ -20,21 +19,19 @@ export class AddPost extends Component {
             })
     }
 
-    handleFileChange(e) {
-        this.setState ({
-            file: e.target.files[0],
-            fileName: e.target.value
-        });    
+    handleFileChange = e => {
+            this.state.file= e.target.files[0];
+            this.state.fileName= e.target.value;
     }
             
-    handleValueChange(e) {
+    handleValueChange = e => {
         let nextState = {};
         nextState[e.target.name] = e.target.value;
         this.setState(nextState);
     }
         
     addPost() {
-        const url = `api/posting/`;
+        const url = `http://http://13.59.128.56:8000/api/posting/`;
         const formData = new FormData();
         formData.append('image', this.state.file)
         formData.append('title', this.state.title)

@@ -3,8 +3,6 @@ import { Button, Modal, List, Grid, Image } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import '../pages/Board.css';
 import PostModal from '../pages/PostModal';
-import * as actionCreators from '../store/actions/index';
-
 export class Post extends Component {
   state = {
     open: false,
@@ -23,7 +21,6 @@ export class Post extends Component {
     var date = new Date(this.props.date);
     var distance = date - now;
     var d = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var image = actionCreators.getImage(this.props.image)
   return (
     <div style = {{borderBottom: '1px solid #D5D5D5', marginBottom: '15px'}}>
     <Modal
@@ -47,7 +44,7 @@ export class Post extends Component {
         <Grid columns='three'>
           <Grid.Row height={1}>
             <Grid.Column width={3} >
-              <Image src={`http://13.59.128.56:8000/media/${this.props.image}`} />
+              <Image src={`http://13.59.128.56:8000/media/${this.props.image}`} width={100} height={100} />
             </Grid.Column>
             <Grid.Column width={9}>
               <List.Content style={{marginTop:'5px'}}>

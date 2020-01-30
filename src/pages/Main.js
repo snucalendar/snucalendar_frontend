@@ -38,7 +38,7 @@ export class Main extends Component {
 
         this.setState({
           event_list: this.props.month_calendar
-            .filter((event) => (1<= event.date && event.date<= 7))
+            .filter((event) => (1<= event.date && event.date<= 30))
             .map(date => date.events
             .map((ev, index) => (
               <Event
@@ -88,7 +88,7 @@ export class Main extends Component {
         })
         this.setState({
           event_list: this.props.month_calendar
-          .filter((event)=> (1 <= event.date && event.date <= 19))
+          .filter((event)=> (1 <= event.date && event.date <= 30))
           .map((date) => date.events
           .map((ev, index) => (
             <Event

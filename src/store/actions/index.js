@@ -8,10 +8,15 @@ export {
     getEventList,
     getMyEventList,
     participateEvent,
+    getEventSearch,
 } from './event';
 
 export {
-
+    addPost,
+    getPost,
+    getPostDue,
+    getPostPost,
+    getImage,
 } from './post';
 
 export {

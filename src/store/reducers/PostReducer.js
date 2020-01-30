@@ -2,6 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     post: {},
+    src: '',
 };
 
 const PostReducer = (state = initialState, action = actionTypes.DEFAULT) => {
@@ -9,7 +10,9 @@ const PostReducer = (state = initialState, action = actionTypes.DEFAULT) => {
         case actionTypes.ADD_POST:
             return { ...state };
         case actionTypes.GET_POST:
-            return { ...state, event: action.target };
+            return { ...state, post: action.target };
+        case actionTypes.GET_IMAGE:
+            return { ...state, src: action.target };
         default:
             break;
     }

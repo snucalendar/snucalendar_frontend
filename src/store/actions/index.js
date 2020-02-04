@@ -2,6 +2,8 @@ export {
     getCalendarDate,
     getCalendarMonth,
     changeMonth,
+    toggleEventListModal,
+    showEventDetail,
 } from './calendar';
 
 export {

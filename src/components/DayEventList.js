@@ -1,5 +1,15 @@
 import React, { Component } from "react";
 import EventDetail from './EventDetail';
+import { connect } from 'react-redux';
+import * as actionCreators from '../store/actions/index';
+
+export const mapDispatchToProps = (dispatch) => ({
+    showEventDetail: () => dispatch(actionCreators.showEventDetail()),
+});
+
+export const mapStateToProps = (state) => ({
+    clickedEvent: state.main.clickedEvent,
+});
 
 const backgroundStyle = {
     position: 'absolute',
@@ -48,4 +58,4 @@ class DayEventList extends Component {
     }
 }
 
-export default DayEventList;
+export default connect(mapStateToProps, mapDispatchToProps)(DayEventList);

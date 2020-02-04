@@ -33,16 +33,22 @@ export const changeMonth = (increment, newYear, newMonth) => (dispatch) => { // 
     return increment;
 }
 
-const toggleEventListModal_ = () => ({
+const toggleEventListModal_ = (isClicked) => ({
     type: actionTypes.TOGGLE_EVENT_LIST_MODAL,
-    target: '',
+    target: isClicked,
 });
 
-export const toggleEventListModal = () => (dispatch) => {}
+export const toggleEventListModal = (isClicked) => (dispatch) => {
+    dispatch(toggleEventListModal_());
+    return isClicked;
+}
 
 const showEventDetail_ = () => ({
     type: actionTypes.SHOW_EVENT_DETAIL,
     target: '',
 });
 
-export const showEventDetail = () => (dispatch) => {}
+export const showEventDetail = () => (dispatch) => {
+    dispatch(showEventDetail_());
+    return;
+}

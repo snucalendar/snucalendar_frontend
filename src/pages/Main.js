@@ -59,7 +59,7 @@ export class Main extends Component {
     //do something to make modal
   }
 */
-  changeMonth = (e) => {
+  changeMonth = (e) => { // changeMonth를 리듀서로 옮겼으므로 중복된 코드 삭제하기!
     const increment = e.target.dataset.increment === 'plus' ? 1 : -1;
     let newYear = this.state.currentYear;
     let newMonth = this.state.currentMonth + increment;

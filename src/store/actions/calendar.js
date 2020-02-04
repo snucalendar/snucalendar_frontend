@@ -16,9 +16,33 @@ export const getCalendarMonth_ = (month) => ({
     type: actionTypes.GET_CALENDAR_MONTH,
     target: month,
 });
-    
+
 export const getCalendarMonth = (year, month) => (dispatch) => axios.get(`/api/calendar/${year}/${month}/`)
     .then((res) => {
         dispatch(getCalendarMonth_(res.data));
         return res;
     });
+
+const changeMonth_ = (increment) => ({
+    type: actionTypes.CHANGE_MONTH,
+    target: increment,
+});
+
+export const changeMonth = (increment, newYear, newMonth) => (dispatch) => { // 뭔가 이렇게 하는 거 맞나..ㅠㅠ
+    dispatch(changeMonth_(increment));
+    return increment;
+}
+
+const toggleEventListModal_ = () => ({
+    type: actionTypes.TOGGLE_EVENT_LIST_MODAL,
+    target: '',
+});
+
+export const toggleEventListModal = () => (dispatch) => {}
+
+const showEventDetail_ = () => ({
+    type: actionTypes.SHOW_EVENT_DETAIL,
+    target: '',
+});
+
+export const showEventDetail = () => (dispatch) => {}

@@ -10,7 +10,9 @@ export const mapDispatchToProps = (dispatch) => ({
 });
 
 export const mapStateToProps = (state) => ({
-  month_calendar: state.cd.month_calendar,
+  month_calendar: state.main.month_calendar,
+  currentYear: state.main.currentYear,
+  currentMonth: state.main.currentMonth,
 });
 
 const today = new Date();
@@ -23,17 +25,16 @@ export class Main extends Component {
     event_list: [],
     currentYear,
     currentMonth,
-    event_list: [],
     //eventClicked:false,
     //modalEvent: event,
   };
 
   componentDidMount() {
-    this.props.getCalendarMonth(this.state.currentYear, this.state.currentMonth)
+    this.props.getCalendarMonth(this.props.currentYear, this.props.currentMonth)
       .then(() => {
-        this.setState({
-          month_calendar: this.props.month_calendar
-        });
+        // this.setState({
+        //   month_calendar: this.props.month_calendar
+        // });
 
         var now =new Date();
         var NowDate = Number(now.getDate());
@@ -73,21 +74,6 @@ export class Main extends Component {
 
     this.props.getCalendarMonth(newYear, newMonth)
       .then(() => {
-        this.setState({
-          currentYear: newYear, // 이걸 이런 식으로 업데이트하는 게 맞나 모르겠네,,
-          currentMonth: newMonth,
-          month_calendar: this.props.month_calendar
-          .map((ev, index) => (
-            <Calendar
-              key = {index}
-              year = {ev.year}
-              month = {ev.month}
-              date = {ev.date}
-              events = {ev.events}
-            />
-          ))
-        })
-
         var now =new Date();
         var NowDate = Number(now.getDate());
         this.setState({
@@ -108,11 +94,11 @@ export class Main extends Component {
 
 
   render() {
-    const firstDay = new Date(this.state.currentYear, this.state.currentMonth-1, 1).getDay();
+    const firstDay = new Date(this.props.currentYear, this.props.currentMonth-1, 1).getDay();
     return ( // 아예 Calendar에서 날짜와 이벤트를 받아오는 게 나을 수도...?
       <div style={{'marginTop' : 30}}>
         <h1>Main</h1>
-        <Calendar month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} firstDay={firstDay} /> <br />
+        <Calendar month={this.props.currentMonth} days={this.props.month_calendar} firstDay={firstDay} /> <br />
         {this.state.event_list}
       </div>
     );

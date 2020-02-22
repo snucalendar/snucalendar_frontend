@@ -24,6 +24,7 @@ export class Board extends Component {
     postList_post : [],
     postList_due: [],
     open: false,
+    submit : false
   }
 
 
@@ -101,14 +102,14 @@ export class Board extends Component {
         >
           <Modal.Header>게시글 추가하기</Modal.Header>
           <Modal.Content>
-            <AddPost />
+            <AddPost submit={this.state.submit} />
           </Modal.Content>
           <Modal.Actions>
             <Button onClick={this.close} negative>
               나가기
             </Button>
             <Button               
-              onClick={this.close}
+              onClick={() => {this.setState({submit : true}); this.close()}}
               positive
               labelPosition='right'
               icon='checkmark'

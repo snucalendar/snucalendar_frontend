@@ -11,27 +11,14 @@ export class AddPost extends Component {
         filename : ''
     }
 
-    handleFormSubmit = e => {
-        e.preventDefault()
-        this.addPost()
-            .then((response) => {
-                console.log(response.date);
-            })
-    }
-
-    handleFileChange = e => {
-            this.state.file= e.target.files[0];
-            this.state.fileName= e.target.value;
-    }
-            
-    handleValueChange = e => {
-        let nextState = {};
-        nextState[e.target.name] = e.target.value;
-        this.setState(nextState);
+    componentDidUpdate(prevProps){
+        if(this.props != prevProps){
+            this.forceUpdate()
+        }
     }
         
     addPost() {
-        const url = `http://http://13.59.128.56:8000/api/posting/`;
+        const url = `/api/events/1/posting/`;
         const formData = new FormData();
         formData.append('image', this.state.file)
         formData.append('title', this.state.title)
@@ -46,8 +33,11 @@ export class AddPost extends Component {
     }
 
     render() {
+        if(this.props.submit){
+            this.addPost()
+        }
         return (
-            <Form onSubmit = {this.handleFormSubmit}>
+            <Form>
                 <Form.Group inline>
                 <label>구분</label>
                 <Form.Radio
@@ -65,10 +55,10 @@ export class AddPost extends Component {
                 </Form.Group>  
 
                 <Form.Field>
-                    <Input label='이미지' type = "file" name="file" file={this.state.file} value={this.state.fileName} onChange={this.handleFileChange} />
+                    <Input label='이미지' type = "file" name="file" file={this.state.file} value={this.state.fileName} onChange={(e) => this.setState({filename : e.target.value, file : e.target.files[0]})} />
                 </Form.Field>
-                <Form.Input label='제목' placeholder='...입력'  type = "text" name="title" value={this.state.title} onChange={this.handleValueChange} />
-                <Form.TextArea label='내용' placeholder='행사 홍보 내용을 입력해주세요!' type = "text" name="content" value={this.state.content} onChange={this.handleValueChange} />
+                <Form.Input label='제목' placeholder='...입력'  type = "text" name="title" value={this.state.title} onChange={(e) => this.setState({title : e.target.value})} />
+                <Form.TextArea label='내용' placeholder='행사 홍보 내용을 입력해주세요!' type = "text" name="content" value={this.state.content} onChange={(e) => this.setState({content : e.target.value})} />
             </Form>
         )
     }

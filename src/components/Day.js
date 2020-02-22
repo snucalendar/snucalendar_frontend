@@ -16,8 +16,8 @@ class Day extends Component {
     const modal = this.state.isClicked && this.props.events.length ? <DayEventList events={this.props.events} toggleDayEventList={this.toggleDayEventList} /> : null;
     const style = this.props.isFirst ? {gridColumnStart: this.props.firstDay+1} : null;
     return (
-      <div style={style} onClick={this.toggleDayEventList}>
-        {this.props.date}일
+      <div style={style, {width : '150px', height: '160px', border: '1px solid grey'}} onClick={this.toggleDayEventList}>
+        {this.props.date}
         <ul>{events}</ul>
         {modal}
       </div>

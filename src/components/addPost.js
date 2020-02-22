@@ -24,7 +24,7 @@ export class AddPost extends Component {
             this.forceUpdate()
         }
     }
-        
+
     addPost() {
         const url = `/api/events/1/posting/`;
         const formData = new FormData();

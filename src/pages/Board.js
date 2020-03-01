@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Post from '../components/Post';
 import AddPost from '../components/addPost';
-import { Button, Tab, Header, Modal, Icon, List } from 'semantic-ui-react';
+import { Tab, Header, Icon, List } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './Board.css';
 
@@ -11,7 +11,6 @@ import * as actionCreators from '../store/actions/index';
 export const mapDispatchToProps = (dispatch) => ({
   getPostDue: (start, interval) => dispatch(actionCreators.getPostDue(start, interval)),
   getPostPost: (start, interval) => dispatch(actionCreators.getPostPost(start, interval)),
-  getEvent: (id) => dispatch(actionCreators.getEvent(id)),
 });
 
 export const mapStateToProps = (state) => ({
@@ -26,8 +25,8 @@ export class Board extends Component {
     
   }
 
-  componentDidMount() {
-   this.props.getPostPost(1, 10)
+  getPosting = () => {
+    this.props.getPostPost(1, 10)
    .then(() => {
      var post_list_post = JSON.parse(this.props.post_list_post)
      this.setState({
@@ -38,7 +37,7 @@ export class Board extends Component {
            id = {ps.id}
            title = {ps.title}
            content = {ps.content}
-           date = {this.props.getEvent(ps.event).event_date}
+           date = {ps.event_date}
            image = {ps.image}
          />
        )),
@@ -55,12 +54,16 @@ export class Board extends Component {
           id = {ps.id}
           title = {ps.title}
           content = {ps.content}
-          date = {this.props.getEvent(ps.event).event_date}
+          date = {ps.event_date}
           image = {ps.image}
          />
        )),
      });
    })
+  }
+
+  componentDidMount() {
+   this.getPosting()
   }
 
   panes = [
@@ -91,7 +94,7 @@ export class Board extends Component {
             <Icon name='clipboard list' />
             <Header.Content>
               홍보게시판
-              <AddPost/>
+              <AddPost getPosting = {this.getPosting}/>
               <Header.Subheader>행사 홍보글을 올릴 수 있어요!</Header.Subheader>
             </Header.Content>
           </Header>

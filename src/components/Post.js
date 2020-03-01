@@ -15,12 +15,20 @@ export class Post extends Component {
   close = () => this.setState({ open: false })
 
   render(){
-    console.log(this.props.image)
     const { open, closeOnDimmerClick } = this.state;
-    var now = new Date();
-    var date = new Date(this.props.date);
-    var distance = date - now;
-    var d = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let now = new Date();
+    let date = new Date(this.props.date);
+    let distance = Math.floor((date - now) / (1000 * 60 * 60 * 24));
+    let dDay = '';
+    if(distance<0){
+      dDay = 'D+'+ (-distance)
+    }
+    else if(distance==0){
+      dDay = 'D-day'
+    }
+    else{
+      dDay = 'D-' + distance
+    }
   return (
     <div style = {{borderBottom: '1px solid #D5D5D5', marginBottom: '15px'}}>
     <Modal
@@ -53,7 +61,7 @@ export class Post extends Component {
               </List.Content>
             </Grid.Column>
             <Grid.Column width={2} verticalAlign='middle'>
-              <h2 className="d-day">D-{d}</h2>
+              <h2 className="d-day">{dDay}</h2>
             </Grid.Column>
           </Grid.Row>
         </Grid>

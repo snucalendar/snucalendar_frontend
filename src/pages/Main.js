@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
+import { Ref } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import Calendar from '../components/Calendar';
 import Event from '../components/Event';
@@ -29,6 +30,7 @@ export class Main extends Component {
     //eventClicked:false,
     //modalEvent: event,
   };
+  contextRef = createRef()
 
   componentDidMount() {
     this.props.getCalendarMonth(this.state.currentYear, this.state.currentMonth)
@@ -113,9 +115,10 @@ export class Main extends Component {
     
     const firstDay = new Date(this.state.currentYear, this.state.currentMonth-1, 1).getDay();
     return ( // 아예 Calendar에서 날짜와 이벤트를 받아오는 게 나을 수도...?
+      <Ref innerRef = {this.contextRef}>
       <div>
-      <Header menu="Calendar"/>
-      <div style={{'marginTop' : 20, marginRight : 'auto', marginLeft : 'auto'}}>
+      <Header menu="Calendar" contextRef = {this.contextRef}/>
+      <div style={{'marginTop' : 20, marginRight : 0, marginLeft : 0}}>
         <h1 style = {{textAlign:'center'}}></h1>
         <Calendar month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} firstDay={firstDay} /> <br />
         <div style = {{width : 1100, marginLeft : 'auto', marginRight : 'auto'}}>
@@ -133,6 +136,7 @@ export class Main extends Component {
       </div>
 
       </div>
+      </Ref>
     );
   }
 }

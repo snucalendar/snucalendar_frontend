@@ -112,6 +112,7 @@ export class Main extends Component {
   render() {
     
     const firstDay = new Date(this.state.currentYear, this.state.currentMonth-1, 1).getDay();
+    console.log(firstDay)
     return ( // 아예 Calendar에서 날짜와 이벤트를 받아오는 게 나을 수도...?
       <div>
       <Header menu="Calendar"/>

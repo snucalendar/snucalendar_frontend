@@ -4,6 +4,10 @@ import './Calendar.css';
 
 
 const Calendar = (props) => {
+  let blankDays = []
+  for(let i=0;i<props.day;i++){
+    blankDays.push(<Day />)
+  }
   const days = props.days.map((day, index) => (
     <Day
       key={index}

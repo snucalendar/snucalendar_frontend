@@ -7,6 +7,7 @@ export {
     getEvent,
     getEventList,
     getMyEventList,
+    getPostingEventList,
     participateEvent,
     getEventSearch,
 } from './event';

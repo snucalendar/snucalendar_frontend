@@ -5,25 +5,27 @@ import 'semantic-ui-css/semantic.min.css';
 import image from '../images/calendar.png';
 import SearchBar from './SearchBar';
 import './Header.css';
+import './Calendar.css';
 
 export const HeaderPart = (props) => (
-    <Sticky className="TopBar" style={{ backgroundColor: '#ffffff', xIndex: 1 }} >
-      <Segment style={{ height: '100px', marginBottom: '-15px' }}>
-      <Grid colums={3} style={{ minWidth: '800px' }}>
-        <Grid.Row verticalAlign="middle" style={{ marginBottom: '0px' }}>
-          <Grid.Column textAlign="center" style={{ minWidth: 200 }}><Header style={{ cursor: 'pointer' }} size="huge" textAlign="center"><Image src={image} fluid /></Header></Grid.Column>
-          <Grid.Column style={{ minWidth: 300 }}><SearchBar minWidth="300px" width="calc(100vw - 500px)"/></Grid.Column>
+  <div style={{maxWidth: '1050px'}}>
+    <Sticky className="TopBar" style={{ xIndex: 1 }} >
+      <Segment style={{padding: 30, marginBottom: 0,'vertical-align': 'middle', height: '130px'}}>
+      <Grid colums={3} style={{ 'vertical-align': 'middle',minWidth: '800px' }}>
+        <Grid.Row verticalAlign="middle" style={{'vertical-align': 'middle'}}>
+          <Grid.Column style={{ minWidth: 200 }}><Header style={{ cursor: 'pointer' }} size="huge" textAlign="center"><Image src={image} fluid /></Header></Grid.Column>
+          <Grid.Column style={{ width:'60%'}}><SearchBar/></Grid.Column>
           <Grid.Column style={{ minWidth: '180px' }} floated="right"><Icon name = 'user' className='userIcon' size='big' /></Grid.Column>
         </Grid.Row>
       </Grid>
     </Segment>
-    <Menu className="UtilBar" pointing secondary style={{ borderRadius: '0px', marginBottom: '-15px', backgroundColor: 'white' }}>
+    <Menu className="UtilBar" pointing secondary style={{margin : 0, backgroundColor: 'white', 'font-size' : '20px' }}>
       <Menu.Item
         className="Calendar"
         active={props.menu === 'Calendar'}
         onClick={() => props.history.push('/')}
       >
-          행사캘린더
+        행사캘린더
       </Menu.Item>
 
       <Menu.Item
@@ -31,10 +33,11 @@ export const HeaderPart = (props) => (
         active={props.menu === 'MyCalendar'}
         onClick={() => props.history.push('/mycalendar')}
       >
-          내 캘린더
+        내캘린더
       </Menu.Item>
 
       <Menu.Item
+        style={{width:145.71}}
         className="Board"
         active={props.menu === 'Board'}
         onClick={() => props.history.push('/board')}
@@ -43,6 +46,7 @@ export const HeaderPart = (props) => (
       </Menu.Item>
     </Menu>
     </Sticky>
+  </div>
 );
 
 export default withRouter(HeaderPart);

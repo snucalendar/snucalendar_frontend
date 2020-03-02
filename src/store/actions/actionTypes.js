@@ -15,6 +15,7 @@ export const GET_POST = 'GET_POST';
 export const GET_POST_LIST_DUE = 'GET_POST_LIST_DUE';
 export const GET_POST_LIST_POST = 'GET_POST_LIST_POST';
 export const GET_IMAGE = 'GET_IMAGE';
+export const GET_POSTING_EVENT_LIST = 'GET_POSTING_EVENT_LIST';
 
 
 //user actions

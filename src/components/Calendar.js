@@ -1,5 +1,7 @@
 import React from 'react';
 import Day from './Day';
+import './Calendar.css';
+
 
 const Calendar = (props) => {
   const days = props.days.map((day, index) => (
@@ -12,24 +14,30 @@ const Calendar = (props) => {
     />
   ));
 
-  return ( // 달의 첫 날이 시작하는 요일을 알아야 할 듯...? 그것만 fr을 다르게 주게
-    <div>
-      <div style={{textAlign: 'center'}}>
-        <span data-increment='minus' onClick={props.changeMonth}>◀</span>
-        <span>{props.month}월</span>
-        <span data-increment='plus' onClick={props.changeMonth}>▶</span>
+  return (
+    <div style = {{width : '1050px'}}>
+      <div style={{height: '80px', textAlign: 'center', backgroundColor: 'white'}}>
+        <link rel="stylesheet" href="Calendar.css" type="Calendar/css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+        <span><i class="fa fa-angle-left" style={{'font-weight' : '900'}} data-increment='minus' onClick={props.changeMonth}></i></span>
+        <span style={{margin:'80px'}}>{props.month}월</span>
+        <span><i class="fa fa-angle-right" style={{'font-weight' : '900'}} data-increment='plus' onClick={props.changeMonth}></i></span>
       </div>
-      <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr'}}>
-        <div>일</div>
-        <div>월</div>
-        <div>화</div>
-        <div>수</div>
-        <div>목</div>
-        <div>금</div>
-        <div>토</div>
-      </div>
-      <div style={{display: 'grid', gridTemplateRows: '1fr 1fr 1fr 1fr 1fr', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr'}}>
-        {days}
+
+      <div style={{ border: '0.2px solid #D8D8D8', width: '1050px'}}>
+        <div style={{'border-bottom': '1px solid #D8D8D8', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr'}}>
+          <span className = 'days' style = {{color: 'red'}}>일</span>
+          <span className = 'days'>월</span>
+          <span className = 'days'>화</span>
+          <span className = 'days'>수</span>
+          <span className = 'days'>목</span>
+          <span className = 'days'>금</span>
+          <span className = 'days' style = {{color: '#368AFF'}}>토</span>
+        </div>
+        <p style={{marginBottom:'10px'}}/>
+        <div style={{color: 'red','font-family': 'Nanum', display: 'grid', gridTemplateRows: '1fr 1fr 1fr 1fr 1fr', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr'}}>
+          {days}
+        </div>
       </div>
     </div>
   );

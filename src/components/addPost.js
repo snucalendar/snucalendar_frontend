@@ -94,22 +94,7 @@ export class AddPost extends Component {
         >
           <Modal.Header>게시글 추가하기</Modal.Header>
           <Modal.Content>
-            <Form>
-                    <Form.Group inline>
-                    <label>구분</label>
-                    <Form.Radio
-                        label='Club'
-                    />
-                    <Form.Radio
-                        label='Festival'
-                    />
-                    <Form.Radio
-                        label='Show'
-                    />
-                    <Form.Radio
-                        label='Etc'
-                    />
-                    </Form.Group>  
+            <Form> 
                     <Form.Field>
                         <Input label='이미지' type = "file" name="file" file={this.state.file} value={this.state.fileName} onChange={(e) => this.setState({filename : e.target.value, file : e.target.files[0]})} />
                     </Form.Field>

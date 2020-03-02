@@ -17,7 +17,7 @@ export const HeaderPart = (props) => (
           <Grid.Column style={{ width:'60%'}}>
             <SearchBar/>
           </Grid.Column>
-          <Grid.Column style={{ minWidth: '180px' }} floated="right"><Icon name = 'user' className='userIcon' size='big' /></Grid.Column>
+          <Grid.Column style={{ minWidth: '180px' }} floated="right"><Profile /></Grid.Column>
         </Grid.Row>
       </Grid>
     </Segment>

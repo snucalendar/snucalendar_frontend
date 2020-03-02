@@ -35,10 +35,6 @@ export class AddPost extends Component {
         }
     }
 
-<<<<<<< HEAD
-    addPost() {
-        const url = `/api/events/1/posting/`;
-=======
     
 
     addPost = () => {
@@ -48,7 +44,6 @@ export class AddPost extends Component {
         }
 
         const url = `/api/events/${this.state.id}/posting/`;
->>>>>>> 5d21fac06a47fd1e4c3184b35b119b29f639568f
         const formData = new FormData();
         formData.append('image', this.state.file)
         formData.append('title', this.state.title)

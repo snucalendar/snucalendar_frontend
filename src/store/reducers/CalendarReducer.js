@@ -4,6 +4,7 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
     date_calendar: {},
     month_calendar: [],
+    my_month_calendar: [],
 };
 
 const CalendarReducer = (state = initialState, action = actionTypes.DEFAULT) => {
@@ -12,6 +13,8 @@ const CalendarReducer = (state = initialState, action = actionTypes.DEFAULT) => 
             return { ...state, date_calendar: action.target };
         case actionTypes.GET_CALENDAR_MONTH:
             return { ...state, month_calendar: action.target };
+        case actionTypes.GET_MYCALENDAR_MONTH:
+            return { ...state, my_month_calendar: action.target };
         default:
             break;
     }

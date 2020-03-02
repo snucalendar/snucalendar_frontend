@@ -1,6 +1,7 @@
 export {
     getCalendarDate,
     getCalendarMonth,
+    getMyCalendarMonth,
 } from './calendar';
 
 export {

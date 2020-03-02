@@ -1,14 +1,15 @@
 import React from 'react';
-import Day from './Day';
+import Day_mycal from './Day_mycal';
 import './Calendar.css';
 
 
-const Calendar = (props) => {
+const MyCalendar = (props) => {
   const days = props.days.map((day, index) => (
-    <Day
+    <Day_mycal
       key={index}
       date={day.date}
-      events={day.events}
+      interested_events={day.interested_events}
+      participated_events={day.participated_events}
       isFirst={ index === 0 ? true : false }
       firstDay={props.firstDay}
     />
@@ -43,4 +44,4 @@ const Calendar = (props) => {
   );
 }
 
-export default Calendar;
+export default MyCalendar;

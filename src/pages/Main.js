@@ -115,19 +115,21 @@ export class Main extends Component {
     return (
       <div>
       <Header menu="Calendar"/>
-      <div style={{'marginTop' : 20}}>
+      <div style={{'marginTop' : 20, marginRight : 'auto', marginLeft : 'auto'}}>
         <h1 style = {{textAlign:'center'}}></h1>
         <Calendar month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} firstDay={firstDay} /> <br />
-        <div class="dropdown">
-          <p class = "dropbtn">
-            가나다순 <i class="fa fa-angle-down" />
-          </p>
-          <div class="dropdown-content">
-            <a>임박순</a>
-            <a>인기순</a>
+        <div style = {{width : 1100, marginLeft : 'auto', marginRight : 'auto'}}>
+          <div class="dropdown">
+            <p class = "dropbtn">
+              가나다순 <i class="fa fa-angle-down" />
+            </p>
+            <div class="dropdown-content">
+              <a>임박순</a>
+              <a>인기순</a>
+            </div>
           </div>
+          {this.state.event_list}
         </div>
-        {this.state.event_list}
       </div>
 
       </div>

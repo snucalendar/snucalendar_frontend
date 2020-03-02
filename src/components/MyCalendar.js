@@ -16,7 +16,7 @@ const MyCalendar = (props) => {
   ));
 
   return (
-    <div style = {{width : '1050px'}}>
+    <div style = {{width : '1050px', marginRight : 'auto', marginLeft : 'auto'}}>
       <div style={{height: '80px', textAlign: 'center', backgroundColor: 'white'}}>
         <link rel="stylesheet" href="Calendar.css" type="Calendar/css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />

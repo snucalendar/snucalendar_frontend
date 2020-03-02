@@ -95,7 +95,8 @@ export class Main extends Component {
     return (
       <div>
         <Header menu="MyCalendar"/>
-          <div style={{'marginTop' : 30}}>
+          <div style={{'marginTop' : 20, marginRight : 'auto', marginLeft : 'auto'}}>
+          <h1 style = {{textAlign:'center'}}></h1>
             <MyCalendar month={this.state.currentMonth} days={this.props.my_month_calendar} changeMonth={this.changeMonth} firstDay={firstDay} />
           </div>
       </div>

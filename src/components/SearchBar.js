@@ -26,7 +26,7 @@ export const mapDispatchToProps = (dispatch) => ({
       return (
         <Input
           className="SearchBar"
-          style={{ width: this.props.width, minWidth: this.props.minWidth }}
+          style={{ height: '50px', width: this.props.width, minWidth: this.props.minWidth }}
           size={this.props.size}
           fluid
           value={this.state.value}

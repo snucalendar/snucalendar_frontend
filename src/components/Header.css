@@ -6,3 +6,13 @@
 .userIcon {
     color: black;
 }
+
+
+b{
+    color: black;
+    height: '20px';
+    font-family: 'Nanum';
+    font-weight: 100;
+    margin-top: 0px;
+    border-bottom: 2px solid #ffffff;
+}

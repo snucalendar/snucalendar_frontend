@@ -1,0 +1,35 @@
+a{
+    color: #A57E7E;
+}
+
+a:hover{
+    background-color: #D8D8D8;
+    color: #A57E7E;
+}
+
+a:active{
+    background-color: #D8D8D8;
+}
+
+.event {
+    margin-left : 3px;
+    color: black;
+    overflow: hidden;
+    width: 150px;
+    white-space: nowrap;
+    font-size: 18px;
+    background-color: #CEF6E3;
+    text-overflow: ellipsis;
+    padding: 5px;
+}
+.event_study {
+    margin-left : 3px;
+    color: black;
+    overflow: hidden;
+    width: 150px;
+    white-space: nowrap;
+    font-size: 18px;
+    background-color: #FFCD12;
+    text-overflow: ellipsis;
+    padding: 5px;
+}

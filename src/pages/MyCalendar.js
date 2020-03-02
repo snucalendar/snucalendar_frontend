@@ -4,6 +4,7 @@ import Calendar from '../components/Calendar';
 import Event from '../components/Event';
 import { Tab, List } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import Header from '../components/Header';
 
 import * as actionCreators from '../store/actions/index';
 
@@ -117,17 +118,20 @@ export class Main extends Component {
   }
 
   render() {
+    
     const a = this.state.myEvent_list.filter((event) => {
       const [year, month, day] = event.date.split(':');
       return year == this.state.currentYear && month == this.state.currentMonth;
     });
     const firstDay = new Date(this.state.currentYear, this.state.currentMonth-1, 1).getDay();
 
-    return ( // 아예 Calendar에서 날짜와 이벤트를 받아오는 게 나을 수도...?
-      <div style={{'marginTop' : 30}}>
-        <h1>Main</h1>
-        <Calendar month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} firstDay={firstDay} />
-        <Tab menu={{ secondary: true, pointing: true }} panes={this.panes} />
+    return (
+      <div>
+        <Header menu="MyCalendar"/>
+          <div style={{'marginTop' : 30}}>
+            <Calendar month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} firstDay={firstDay} />
+            <Tab menu={{ secondary: true, pointing: true }} panes={this.panes} />
+          </div>
       </div>
     );
   }

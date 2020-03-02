@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Post from '../components/Post';
 import AddPost from '../components/addPost';
-import { Button, Tab, Header, Modal, Icon, List } from 'semantic-ui-react';
+import { Tab, Header, Icon, List } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './Board.css';
+import HeaderPart from '../components/Header';
 
 import * as actionCreators from '../store/actions/index';
 
@@ -86,6 +87,7 @@ export class Board extends Component {
   render(){
     return (
       <div>
+        <HeaderPart menu = "Board"/>
         <div className="Board" >
           <Header as='h2' attached='top'>
             <Icon name='clipboard list' />

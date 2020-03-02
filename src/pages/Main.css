@@ -1,0 +1,16 @@
+.dropdown { font-size: 20px; margin-left: 20px; position: relative; display: inline-block; }
+.dropbtn { font-weight: 600;  padding: 8px; font-size: 15px; border: none; }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 70px;
+    padding: 8px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a { color: black; padding: 8px; text-decoration: none; display: block; }
+
+.dropdown-content a:hover { background-color: #DBDBDB; }
+
+.dropdown:hover .dropdown-content { display: block; }

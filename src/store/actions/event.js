@@ -42,6 +42,16 @@ export const getMyEventList = () => (dispatch) => axios.get('/api/myevents/')
         dispatch(getMyEventList_(res.data));
     });
 
+export const getPostingEventList_ = (posting_event_list) => ({
+    type : actionTypes.GET_POSTING_EVENT_LIST,
+    target: posting_event_list
+}) 
+export const getPostingEventList = () => (dispatch) => axios.get('/api/posting/events/')
+    .then((res) => {
+        dispatch(getPostingEventList_(res.data))
+    })
+
+
 export const participateEvent_ = (id) => ({
     type: actionTypes.PARTICIPATE_EVENT,
     // target: event,

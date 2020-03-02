@@ -3,7 +3,7 @@ import { Ref } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import Calendar from '../components/Calendar';
 import Event from '../components/Event';
-import Header from '../components/Header';
+import HeaderPart from '../components/Header';
 import './Main.css';
 
 import * as actionCreators from '../store/actions/index';
@@ -117,7 +117,7 @@ export class Main extends Component {
     return ( // 아예 Calendar에서 날짜와 이벤트를 받아오는 게 나을 수도...?
       <Ref innerRef = {this.contextRef}>
       <div>
-      <Header menu="Calendar" contextRef = {this.contextRef}/>
+      <HeaderPart menu="Calendar" contextRef = {this.contextRef}/>
       <div style={{'marginTop' : 20, marginRight : 0, marginLeft : 0}}>
         <h1 style = {{textAlign:'center'}}></h1>
         <Calendar month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} firstDay={firstDay} /> <br />

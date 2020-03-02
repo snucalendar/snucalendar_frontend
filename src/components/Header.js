@@ -6,6 +6,7 @@ import image from '../images/calendar.png';
 import SearchBar from './SearchBar';
 import './Header.css';
 import './Calendar.css';
+import Profile from './Profile';
 
 export const HeaderPart = (props) => (
   <div style={{maxWidth: '1050px'}}>
@@ -15,7 +16,7 @@ export const HeaderPart = (props) => (
         <Grid.Row verticalAlign="middle" style={{'vertical-align': 'middle'}}>
           <Grid.Column style={{ minWidth: 200 }}><Header style={{ cursor: 'pointer' }} size="huge" textAlign="center"><Image src={image} fluid /></Header></Grid.Column>
           <Grid.Column style={{ width:'60%'}}><SearchBar/></Grid.Column>
-          <Grid.Column style={{ minWidth: '180px' }} floated="right"><Icon name = 'user' className='userIcon' size='big' /></Grid.Column>
+          <Grid.Column style={{ minWidth: '180px' }} floated="right"><Profile /></Grid.Column>
         </Grid.Row>
       </Grid>
     </Segment>

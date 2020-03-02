@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import Post from '../components/Post';
 import AddPost from '../components/addPost';
-import { Tab, Header, Icon, List } from 'semantic-ui-react';
+import { Tab, Header, Icon, List, Ref } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './Board.css';
 import HeaderPart from '../components/Header';
@@ -25,6 +25,8 @@ export class Board extends Component {
     postList_due: [],
     
   }
+
+  contextRef = createRef()
 
   getPosting = () => {
     this.props.getPostPost(1, 10)
@@ -89,21 +91,23 @@ export class Board extends Component {
 
   render(){
     return (
-      <div>
-        <HeaderPart menu = "Board"/>
-        <div className="Board" >
-          <Header as='h2' attached='top'>
-            <Icon name='clipboard list' />
-            <Header.Content>
-              홍보게시판
-              <AddPost getPosting = {this.getPosting}/>
-              <Header.Subheader>행사 홍보글을 올릴 수 있어요!</Header.Subheader>
-            </Header.Content>
-          </Header>
-          <Tab menu={{ secondary: true, pointing: true }} panes={this.panes} />
-          <br />
+      <Ref innerRef = {this.contextRef}>
+        <div>
+          <HeaderPart menu = "Board" innerRef = {this.contextRef}/>
+          <div className="Board" style = {{marginLeft : 'auto', marginRight : 'auto'}}>
+            <Header as='h2' attached='top'>
+              <Icon name='clipboard list' />
+              <Header.Content>
+                홍보게시판
+                <AddPost getPosting = {this.getPosting}/>
+                <Header.Subheader>행사 홍보글을 올릴 수 있어요!</Header.Subheader>
+              </Header.Content>
+            </Header>
+            <Tab menu={{ secondary: true, pointing: true }} panes={this.panes} />
+            <br />
+          </div>
         </div>
-      </div>
+      </Ref>
     );
   }
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid,Header, Image, Icon, Segment, Sticky, Menu } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
-import 'semantic-ui-css/semantic.min.css';
 import image from '../images/calendar.png';
 import SearchBar from './SearchBar';
 import './Header.css';
@@ -10,7 +9,7 @@ import Profile from './Profile';
 
 export const HeaderPart = (props) => (
   <div >
-    <Sticky className="TopBar" style={{ xIndex: 1 }} >
+    <Sticky context = {props.contextRef} className="TopBar" style={{ xIndex: 1 }} >
       <Segment style={{padding: 30, marginBottom: 0,'vertical-align': 'middle', height: '130px'}}>
       <Grid colums={3} style={{ 'vertical-align': 'middle',minWidth: '800px' }}>
         <Grid.Row verticalAlign="middle" style={{'vertical-align': 'middle'}}>

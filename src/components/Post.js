@@ -17,17 +17,21 @@ export class Post extends Component {
   render(){
     const { open, closeOnDimmerClick } = this.state;
     let now = new Date();
+    now.setHours(0)
+    now.setMinutes(0)
+    now.setSeconds(0)
+    now.setMilliseconds(0)
     let date = new Date(this.props.date);
-    let distance = Math.floor((date - now) / (1000 * 60 * 60 * 24));
+    let distance = (date - now) / (1000 * 60 * 60 * 24);
     let dDay = '';
     if(distance<0){
       dDay = 'D+'+ (-distance)
     }
-    else if(distance==0){
-      dDay = 'D-day'
+    else if(distance>0){
+      dDay = 'D-' + distance
     }
     else{
-      dDay = 'D-' + distance
+      dDay = 'D-day'
     }
   return (
     <div style = {{borderBottom: '1px solid #D5D5D5', marginBottom: '15px'}}>

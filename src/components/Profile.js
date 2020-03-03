@@ -12,7 +12,7 @@ export const mapDispatchToProps = (dispatch) => ({
   });
 
 export const mapStateToProps = (state) => ({
-  email: state.us.info.email,
+  username: state.us.info.username,
 });
 
 export class Profile extends Component {
@@ -33,15 +33,15 @@ export class Profile extends Component {
   }
   
   render() {
-    if (this.props.email != '') {
+    if (this.props.username != '') {
       return (
         <Dropdown className="DropDownClass" id="DropDownClass" style={this.props.style} as={Button} text="Profile" size="large" direction="left">
           <Dropdown.Menu className="Menu" id="Menu" as={Segment}>
             <Dropdown.Item id="upperItem" onClick={() => this.props.history.push('/mypage/')}>
               <Icon centered name="user circle" className="UserIcon" size="huge" />
-              <div id="email">
+              <div id="username">
                 {'Hello, '}
-                {this.props.email}
+                {this.props.username}
                 {' !'}
               </div>
             </Dropdown.Item>

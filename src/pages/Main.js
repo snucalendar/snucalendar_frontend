@@ -103,7 +103,7 @@ export class Main extends Component {
     }
             
     this.props.getCalendarMonth(newYear, newMonth)
-      .then(() => {a
+      .then(() => {
         this.setState({
           currentYear: newYear, // 이걸 이런 식으로 업데이트하는 게 맞나 모르겠네,,
           currentMonth: newMonth,

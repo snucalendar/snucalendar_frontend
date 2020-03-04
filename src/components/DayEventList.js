@@ -1,48 +1,34 @@
 import React, { Component } from "react";
 import EventDetail from './EventDetail';
+import './DayEventList.css'
 
-const backgroundStyle = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100vw',
-    height: '100vh',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-};
-
-const modalStyle = {
-    width: 300,
-    height: 400,
-    backgroundColor: 'white',
-}
 
 class DayEventList extends Component {
     state = {
         clickedEvent: null,
+        events : [],
+        modal : null,
     }
 
     toggleEventDetail = (e) => {
+        console.log(e)
         e.stopPropagation();
         if (e.target.id === 'background') {
             this.setState({ clickedEvent: null });
-        } else if (e.target.dataset.eid) {
+        } else if (e.target.id) {
             e.target.parentNode.style.display = 'none';
-            this.setState({ clickedEvent: this.props.events.find((event) => event.id === Number(e.target.dataset.eid)) });
+            this.setState({ clickedEvent: this.props.events.find((event) => event.id == e.target.id) });
         }
     }
 
     render() {
-        const events = this.props.events.map((event) => <div key={event.id} data-eid={event.id} onClick={this.toggleEventDetail}>{event.title}</div>);
-        const modal = this.state.clickedEvent ? <EventDetail event={this.state.clickedEvent} removeEventDetail={this.props.toggleDayEventList} /> : null;
+        const events = this.props.events.map((event) => <div key={event.id} id={event.id} onClick={this.toggleEventDetail}>{event.title}</div>);
+        const modal = this.state.clickedEvent ? <EventDetail event={this.state.clickedEvent} removeEventDetail={this.props.toggleDayEventList} /> : events;
         return (
-            <div id="background" style={backgroundStyle} onClick={this.props.toggleDayEventList}>
-                <div style={modalStyle} onClick={this.toggleEventDetail}>
-                    {events}
+            <div id="event_modal_background" onClick={this.props.toggleDayEventList}>
+                <div id='event_modal'>
+                    {modal}
                 </div>
-                {modal}
             </div>
         );
     }

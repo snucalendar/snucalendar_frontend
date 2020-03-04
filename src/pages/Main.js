@@ -38,10 +38,6 @@ export class Main extends Component {
 
   componentDidMount() {
     this.props.getCalendarMonth(this.state.currentYear, this.state.currentMonth)
-      .then(() => {
-        this.setState({
-          month_calendar: this.props.month_calendar
-        });
 
         var now =new Date();
         var NowDate = Number(now.getDate());
@@ -83,7 +79,7 @@ export class Main extends Component {
           ))
       })
 
-  })}
+    };
 /*
   manageModal = (title, event) => {
     //do something to make modal
@@ -106,17 +102,7 @@ export class Main extends Component {
       .then(() => {
         this.setState({
           currentYear: newYear, // 이걸 이런 식으로 업데이트하는 게 맞나 모르겠네,,
-          currentMonth: newMonth,
-          month_calendar: this.props.month_calendar
-          .map((ev, index) => (
-            <Calendar
-              key = {index}
-              year = {ev.year}
-              month = {ev.month}
-              date = {ev.date}
-              events = {ev.events}
-            />
-          ))
+          currentMonth: newMonth
         })
 
         var now =new Date();

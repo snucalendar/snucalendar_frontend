@@ -2,24 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 
 import * as actionCreators from '../store/actions/index';
-
-const backgroundStyle = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100vw',
-    height: '100vh',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-};
-
-const modalStyle = {
-    width: 300,
-    height: 400,
-    backgroundColor: 'white',
-};
+import './EventDetail.css'
 
 export const mapDispatchToProps = (dispatch) => ({
     // getEvent: (id) => dispatch(actionCreators.getEvent(id)),
@@ -47,13 +30,11 @@ class EventDetail extends Component {
 
     render() {
         return (
-            <div id="background" style={backgroundStyle} onClick={this.props.removeEventDetail}>
-                <div style={modalStyle}>
-                    {this.props.event.title}
-                    <button onClick={this.participate} value="interested">좋아하기</button>
+                <div id = 'detail_modal'>
+                    {this.props.event && this.props.event.title}
+                    <button onClick={this.participate} value="interested">관심있음</button>
                     <button onClick={this.participate} value="participate">참여하기</button>
                 </div>
-            </div>
         );
     }
 }

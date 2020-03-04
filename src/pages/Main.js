@@ -96,14 +96,14 @@ export class Main extends Component {
 
     if (newMonth > 12) {
       newYear++;
-      newMonth = newMonth - 12;
+      newMonth = newMonth - 12;                                                                                                                                                                                          
     } else if (newMonth < 1) {
       newYear--;
       newMonth = newMonth + 12;
     }
-
+            
     this.props.getCalendarMonth(newYear, newMonth)
-      .then(() => {
+      .then(() => {a
         this.setState({
           currentYear: newYear, // 이걸 이런 식으로 업데이트하는 게 맞나 모르겠네,,
           currentMonth: newMonth,

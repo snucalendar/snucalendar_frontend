@@ -12,7 +12,6 @@ a:active{
 }
 
 .event {
-    margin-left : 3px;
     color: black;
     overflow: hidden;
     width: 150px;
@@ -21,9 +20,9 @@ a:active{
     background-color: #CEF6E3;
     text-overflow: ellipsis;
     padding: 5px;
+    margin-bottom: 0px;
 }
 .event_study {
-    margin-left : 3px;
     color: black;
     overflow: hidden;
     width: 150px;
@@ -32,4 +31,5 @@ a:active{
     background-color: #FFCD12;
     text-overflow: ellipsis;
     padding: 5px;
+    margin-bottom: 0px;
 }

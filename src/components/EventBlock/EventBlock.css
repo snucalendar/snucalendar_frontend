@@ -18,7 +18,6 @@
 }
 
 .EventBlock:hover {
-    opacity: 1;
     background-color: #ddd;
     transition : 0.5s linear;
 }

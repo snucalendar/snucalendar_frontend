@@ -30,13 +30,11 @@ class EventDetail extends Component {
 
     render() {
         return (
-            <div id="detail_modal_background" onClick={this.props.removeEventDetail}>
                 <div id = 'detail_modal'>
                     {this.props.event && this.props.event.title}
                     <button onClick={this.participate} value="interested">관심있음</button>
                     <button onClick={this.participate} value="participate">참여하기</button>
                 </div>
-            </div>
         );
     }
 }

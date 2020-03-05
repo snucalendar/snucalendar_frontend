@@ -1,19 +1,19 @@
 import React from 'react';
 import { Grid,Header, Image, Icon, Segment, Sticky, Menu } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
-import image from '../images/calendar.png';
+import image from '../images/min3.jpg';
 import SearchBar from './SearchBar';
 import './Header.css';
 import './Calendar.css';
 import Profile from './Profile';
 
 export const HeaderPart = (props) => (
-  <div >
+  <div>
     <Sticky context = {props.contextRef} className="TopBar" style={{ xIndex: 1 }} >
-      <Segment style={{padding: 30, marginBottom: 0,'vertical-align': 'middle', height: '130px'}}>
+      <Segment style={{padding: 30, marginBottom: 0,'vertical-align': 'middle', height: '200px'}}>
       <Grid colums={3} style={{ 'vertical-align': 'middle',minWidth: '800px' }}>
         <Grid.Row verticalAlign="middle" style={{'vertical-align': 'middle'}}>
-          <Grid.Column style={{ minWidth: 200 }}><Header style={{ cursor: 'pointer' }} size="huge" textAlign="center"><Image src={image} fluid /></Header></Grid.Column>
+          <Grid.Column style={{ minWidth: 200 }}><Header style={{ cursor: 'pointer' }} size="huge" textAlign="center"><Image style={{width: 150, height:150}} src={image} fluid/></Header></Grid.Column>
           <Grid.Column style={{ width:'60%'}}>
             <SearchBar/>
           </Grid.Column>

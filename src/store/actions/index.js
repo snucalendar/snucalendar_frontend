@@ -11,6 +11,7 @@ export {
     getPostingEventList,
     participateEvent,
     getEventSearch,
+    keepKeyword,
 } from './event';
 
 export {

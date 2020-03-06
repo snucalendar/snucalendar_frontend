@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid,Header, Image, Icon, Segment, Sticky, Menu } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
-import image from '../images/min3.jpg';
+import image from '../images/calendar.png';
 import SearchBar from './SearchBar';
 import './Header.css';
 import './Calendar.css';

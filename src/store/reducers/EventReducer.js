@@ -8,6 +8,7 @@ const EventReducer = (state = initialState, action = actionTypes.DEFAULT) => {
     switch (action.type) {
         case actionTypes.GET_EVENT:
             return { ...state, event: action.target };
+
         default:
             break;
     }

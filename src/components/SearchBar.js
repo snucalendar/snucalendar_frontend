@@ -7,8 +7,9 @@ import 'semantic-ui-css/semantic.min.css';
 
 export const mapDispatchToProps = (dispatch) => ({
     onSearch: (keyword) => { dispatch(actionCreators.getEventSearch(keyword)); },
+    keepKeyword: (keyword) => {dispatch(actionCreators.keepKeyword(keyword)); },
   });
-  
+
   export class SearchBar extends Component {
     state = {
       value: '',
@@ -17,6 +18,7 @@ export const mapDispatchToProps = (dispatch) => ({
     clickListener = () => {
       if (this.state.value !== '') {
         this.props.onSearch(this.state.value);
+        this.props.keepKeyword(this.state.value);
         this.setState({ ...this.state, value: '' });
         this.props.history.push('./search');
       }
@@ -30,13 +32,15 @@ export const mapDispatchToProps = (dispatch) => ({
               margin: 0,
               height: '300%',
               padding: '5px',
-              border: 0,
-              outline: 'none'}
+              border : '1.5px solid #dbdbdb',
+              outline: 'none',
+              borderRadius : '50px'}
           }>
-              <button class='submit' onClick={() => this.clickListener()} style = {{'border-radius' : 200, width: '50px', 'background-color': '#fff', height: '70px', cursor: 'pointer', 'font-size': '1.2em',}}>
+              <button class='submit' onClick={() => this.clickListener()} style = {{'border' : 'none', width: '50px', 'background-color': '#fff', height: '70px', cursor: 'pointer', 'font-size': '1.2em',}}>
                 <i class='fa fa-search' ></i>
               </button>
           <input class='search-box' style={{
+            border : 'none',
             width: 'calc(100% - 50px)',
             height: '70px',
             padding: '0 20px',

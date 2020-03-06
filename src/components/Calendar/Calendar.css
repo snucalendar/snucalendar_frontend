@@ -9,7 +9,7 @@
 @font-face { font-family: 'Cafe24Oneprettynight'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'BBTreeGR'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGR.woff') format('woff'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'GmarketSansLight'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff'); font-weight: normal; font-style: normal; }
-@font-face { font-family: 'Nanum'; src: url('../fonts/NanumGothic.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Nanum'; src: url('../../fonts/NanumGothic.woff') format('woff'); font-weight: normal; font-style: normal; }
 span {
     font-family: 'Nanum';
     text-align: center;

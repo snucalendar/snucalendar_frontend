@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DayEventList from './DayEventList';
+import DayEventList from '../DayEventList/DayEventList';
 import './Day.css';
 
 class Day extends Component {

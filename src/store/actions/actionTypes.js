@@ -28,4 +28,6 @@ export const CHECK_LOGIN = 'CHECK_LOGIN'
 export const GET_USER = 'GET_USER';
 export const GET_USER_INFO = 'GET_USER_INFO';
 
+export const KEEP_PAGE = 'KEEP_PAGE';
+
 export const DEFAULT = 'DEFAULT';

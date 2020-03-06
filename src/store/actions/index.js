@@ -29,3 +29,5 @@ export {
     logOut,
     getUserInfo,
 } from './user';
+
+export { keepPage } from './goto';

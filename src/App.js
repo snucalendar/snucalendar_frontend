@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+import HeaderPart from './components/Header/Header';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import Main from './pages/Main';
@@ -13,6 +14,7 @@ import './index.css';
 function App() {
   return (
     <div>
+      <HeaderPart />
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Main} />
@@ -28,3 +30,4 @@ function App() {
 }
 
 export default App;
+

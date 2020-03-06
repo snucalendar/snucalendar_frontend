@@ -1,15 +1,15 @@
 import React, { Component, createRef } from 'react';
 import { Ref } from 'semantic-ui-react'
 import { connect } from 'react-redux';
-import Calendar from '../components/Calendar';
-import Event from '../components/Event';
-import HeaderPart from '../components/Header';
+import Calendar from '../components/Calendar/Calendar';
+import Event from '../components/Event/Event';
 import './Main.css';
 
 import * as actionCreators from '../store/actions/index';
 
 export const mapDispatchToProps = (dispatch) => ({
   getCalendarMonth: (year, month) => dispatch(actionCreators.getCalendarMonth(year, month)),
+  keepPage: (pageName) => dispatch(actionCreators.keepPage(pageName)),
 });
 
 export const mapStateToProps = (state) => ({
@@ -126,10 +126,10 @@ export class Main extends Component {
 
   render() {
     const firstDay = new Date(this.state.currentYear, this.state.currentMonth-1, 1).getDay();
+    this.props.keepPage('Calendar');
     return (
       <Ref innerRef = {this.contextRef}>
       <div>
-      <HeaderPart menu="Calendar" contextRef = {this.contextRef}/>
       <div style={{'marginTop' : 20, marginRight : 0, marginLeft : 0}}>
         <h1 style = {{textAlign:'center'}}></h1>
         <Calendar month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} firstDay={firstDay} /> <br />

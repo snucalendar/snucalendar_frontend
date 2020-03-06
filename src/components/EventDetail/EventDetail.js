@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 
-import * as actionCreators from '../store/actions/index';
+import * as actionCreators from '../../store/actions/index';
 import './EventDetail.css'
 
 export const mapDispatchToProps = (dispatch) => ({

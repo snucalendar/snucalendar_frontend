@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MyCalendar from '../components/MyCalendar';
+import MyCalendar from '../components/MyCalendar/MyCalendar';
 import { Tab, List } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
-import Header from '../components/Header';
 
 import * as actionCreators from '../store/actions/index';
 
 export const mapDispatchToProps = (dispatch) => ({
   checklogIn: () => dispatch(actionCreators.checklogIn()),
   getMyCalendarMonth: (year, month) => dispatch(actionCreators.getMyCalendarMonth(year, month)),
+  keepPage: (pageName) => dispatch(actionCreators.keepPage(pageName)),
 });
 
 export const mapStateToProps = (state) => ({
@@ -91,10 +91,9 @@ export class Main extends Component {
       return year == this.state.currentYear && month == this.state.currentMonth;
     });*/
     const firstDay = new Date(this.state.currentYear, this.state.currentMonth-1, 1).getDay();
-
+    this.props.keepPage('MyCalendar');
     return (
       <div>
-        <Header menu="MyCalendar"/>
           <div style={{'marginTop' : 20, marginRight : 'auto', marginLeft : 'auto'}}>
           <h1 style = {{textAlign:'center'}}></h1>
             <MyCalendar month={this.state.currentMonth} days={this.props.my_month_calendar} changeMonth={this.changeMonth} firstDay={firstDay} />

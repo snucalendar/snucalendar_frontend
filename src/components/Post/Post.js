@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Modal, List, Grid, Image } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
-import '../pages/Board.css';
-import PostModal from '../pages/PostModal';
+import '../../pages/Board.css';
+import PostModal from '../../pages/PostModal';
 export class Post extends Component {
   state = {
     open: false,

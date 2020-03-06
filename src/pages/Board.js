@@ -1,17 +1,17 @@
 import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
-import Post from '../components/Post';
-import AddPost from '../components/addPost';
+import Post from '../components/Post/Post';
+import AddPost from '../components/addPost/addPost';
 import { Tab, Header, Icon, List, Ref } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './Board.css';
-import HeaderPart from '../components/Header';
 
 import * as actionCreators from '../store/actions/index';
 
 export const mapDispatchToProps = (dispatch) => ({
   getPostDue: (start, interval) => dispatch(actionCreators.getPostDue(start, interval)),
   getPostPost: (start, interval) => dispatch(actionCreators.getPostPost(start, interval)),
+  keepPage: (pageName) => dispatch(actionCreators.keepPage(pageName)),
 });
 
 export const mapStateToProps = (state) => ({
@@ -90,10 +90,10 @@ export class Board extends Component {
 
 
   render(){
+    this.props.keepPage('Board');
     return (
       <Ref innerRef = {this.contextRef}>
         <div>
-          <HeaderPart menu = "Board" innerRef = {this.contextRef}/>
           <div className="Board" style = {{marginLeft : 'auto', marginRight : 'auto'}}>
             <Header as='h2' attached='top'>
               <Icon name='clipboard list' />

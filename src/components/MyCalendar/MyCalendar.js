@@ -1,6 +1,6 @@
 import React from 'react';
-import Day_mycal from './Day_mycal';
-import './Calendar.css';
+import Day_mycal from '../Day/Day_mycal';
+import '../Calendar/Calendar.css';
 
 
 const MyCalendar = (props) => {

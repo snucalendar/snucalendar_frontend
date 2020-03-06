@@ -4,7 +4,7 @@ import {
 } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actionCreators from '../store/actions/index';
+import * as actionCreators from '../../store/actions/index';
 
 export const mapDispatchToProps = (dispatch) => ({
   logOut: () => dispatch(actionCreators.logOut()),

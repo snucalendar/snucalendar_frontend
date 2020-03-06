@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import { Input } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actionCreators from '../store/actions/index';
+import * as actionCreators from '../../store/actions/index';
 import 'semantic-ui-css/semantic.min.css';
 
 export const mapDispatchToProps = (dispatch) => ({
@@ -19,7 +18,6 @@ export const mapDispatchToProps = (dispatch) => ({
       if (this.state.value !== '') {
         this.props.onSearch(this.state.value);
         this.props.keepKeyword(this.state.value);
-        this.setState({ ...this.state, value: '' });
         this.props.history.push('./search');
       }
     }

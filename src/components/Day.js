@@ -13,7 +13,6 @@ class Day extends Component {
   }
 
   render() {
-    console.log(this.props.events)
     const events = this.props.events
     .filter(e => e.event_type === 'club')
     .map(e => <p class="event">{e.title}</p>);

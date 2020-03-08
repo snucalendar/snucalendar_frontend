@@ -4,7 +4,6 @@ import './Calendar.css';
 
 
 const Calendar = (props) => {
-  console.log(props.days)
   const days = props.days.map((day, index) => (
     <Day
       key={index}

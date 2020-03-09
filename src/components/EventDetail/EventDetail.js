@@ -54,6 +54,7 @@ class EventDetail extends Component {
                         <h4 id = 'time'>시간</h4>
                         <h4 id = 'participants'>참여자</h4>
                     </div>
+                    
                     <div style = {{marginTop : 50}}>
                         <h4 id = 'participantsList'>참여자 목록</h4>
                     </div>

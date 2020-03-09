@@ -34,3 +34,10 @@ span {
     grid-template-rows: repeat(5, calc(150vw / 7));
     grid-template-columns: repeat(7, calc(100vw / 7));
 }
+
+.CalendarDay {
+    border-bottom: 1px solid #D8D8D8;
+    background-color: #f7f7f8;
+    display: grid;
+    grid-template-columns: repeat(7, calc(100vw / 7));
+}

@@ -47,7 +47,7 @@ class EventDetail extends Component {
 
     render() {
         return (
-                <div id = 'event_detail'>
+                <div id = 'event_detail' onScroll = {e => e.stopPropagation()}>
                     <div className = "Xmark" onClick = {this.props.closeEventDetail}>
                         <div className = "cross1">
                             <div className = "cross2"></div>

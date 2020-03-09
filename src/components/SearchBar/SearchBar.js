@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
+import { Icon, Grid } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
 import 'semantic-ui-css/semantic.min.css';
@@ -25,36 +26,40 @@ export const mapDispatchToProps = (dispatch) => ({
     render() {
       return (
         <Fragment>
-          <div class='search-box-container' style = {
-            { 
+            <Grid columns={3} style={{
               margin: 0,
-              height: '300%',
+              height: 'auto',
               padding: '5px',
-              border : '1.5px solid #dbdbdb',
+              backgroundColor : '#f0f1f3',
               outline: 'none',
-              borderRadius : '50px'}
-          }>
-              <button class='submit' onClick={() => this.clickListener()} style = {{'border' : 'none', width: '50px', 'background-color': '#fff', height: '70px', cursor: 'pointer', 'font-size': '1.2em',}}>
-                <i class='fa fa-search' ></i>
-              </button>
-          <input class='search-box' style={{
-            border : 'none',
-            width: 'calc(100% - 50px)',
-            height: '70px',
-            padding: '0 20px',
-            'border-radius' : 50,
-            float: 'left',
-            'font-family': "Lato",
-            'font-size': '1em',
-            color: '#212121'}}
-            size={this.props.size}
-            fluid
-            value={this.state.value}
-            onChange={(e) => this.setState({ ...this.state, value: e.target.value })}
-            placeholder="Search...">
+              borderRadius : '50px',
+            }} verticalAlign="middle">
 
-            </input>
-          </div>
+              <Grid.Column style={{width:'80%'}}>
+              <input class='search-box' style={{
+                width: '100%',
+                border : 'none',
+                'border-radius' : 50,
+                float: 'left',
+                'font-family': "Lato",
+                'font-size': '1em',
+                color: '#212121',
+                backgroundColor : '#f0f1f3',}}
+                value={this.state.value}
+                onChange={(e) => this.setState({ ...this.state, value: e.target.value })}
+                placeholder="행사 검색" />
+              </Grid.Column>
+              <Grid.Column style={{width:'10%'}}>
+                <button class='search' onClick={() => this.clickListener()} style = {{'border' : 'none', padding:'0 0 0', backgroundColor: '#f0f1f3', cursor: 'pointer', 'font-size': '1.5em',}}>
+                  <Icon name='search' />
+                </button>
+              </Grid.Column>
+              <Grid.Column style={{width:'10%'}}>
+                <button class='filter' onClick={() => this.clickListener()} style = {{'border' : 'none', padding:'0 0 0', backgroundColor: '#f0f1f3', cursor: 'pointer', 'font-size': '1.5em',}}>
+                  <Icon name='filter' />
+                </button>
+              </Grid.Column>
+            </Grid>
         </Fragment>
       );
     }

@@ -37,6 +37,7 @@ export class Main extends Component {
   contextRef = createRef()
 
   componentDidMount() {
+    this.props.keepPage('Calendar');
     this.props.getCalendarMonth(this.state.currentYear, this.state.currentMonth)
 
         var now =new Date();
@@ -126,7 +127,6 @@ export class Main extends Component {
 
   render() {
     const firstDay = new Date(this.state.currentYear, this.state.currentMonth-1, 1).getDay();
-    this.props.keepPage('Calendar');
     return (
       <Ref innerRef = {this.contextRef}>
       <div>

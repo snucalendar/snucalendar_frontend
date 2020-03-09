@@ -130,9 +130,8 @@ export class Main extends Component {
     return (
       <Ref innerRef = {this.contextRef}>
       <div className = "Main">
-      <div style={{'marginTop' : 20, marginRight : 0, marginLeft : 0}}>
-        <h1 style = {{textAlign:'center'}}></h1>
-        <Calendar month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} firstDay={firstDay} /> <br />
+      <div style={{marginRight : 0, marginLeft : 0}}>
+        <Calendar year = {this.state.currentYear} month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} firstDay={firstDay} /> <br />
         <div style = {{width : 1100, marginLeft : 'auto', marginRight : 'auto'}}>
           <div class="dropdown">
             <button class = "dropbtn">

@@ -17,8 +17,10 @@ a:active{
     white-space: nowrap;
     background-color: #CEF6E3;
     text-overflow: ellipsis;
-    padding: 5px;
-    margin-bottom: 0px;
+    margin-right: 10%;
+    margin-left: 10%;
+    height : 1rem;
+
 }
 .event_study {
     color: black;
@@ -26,6 +28,7 @@ a:active{
     white-space: nowrap;
     background-color: #FFCD12;
     text-overflow: ellipsis;
-    padding: 5px;
-    margin-bottom: 0px;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 0.2rem;
 }

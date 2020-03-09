@@ -10,7 +10,7 @@ const EventBlock = (props) => {
     hour_12 = hour_12 === 0 ? 12 : hour_12;
     const color = props.event.event_type == 'club' ? '#CEF6E3' : '#FFCD12'
     return(
-        <div className="EventBlock" key={props.event.id} id={props.event.id} onClick={() => props.toggleEventDetail(props.event.id)}>
+        <div className="EventBlock" key={props.event.id} id={props.event.id} onClick={() => props.openEventDetail(props.event.id)}>
             <div className = "Ball" style = {{backgroundColor : color}}>
             </div>
             <h3 id='event_block_title'>{props.event.title}</h3>

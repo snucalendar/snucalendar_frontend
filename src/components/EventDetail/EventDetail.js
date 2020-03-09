@@ -48,19 +48,36 @@ class EventDetail extends Component {
     render() {
         return (
                 <div id = 'event_detail'>
-                    <h2 id = "title">{this.props.event.title}</h2>
-                    <div style = {{marginTop : 50, float : 'left', }}>
-                        <h4 id = 'place'>장소</h4>
-                        <h4 id = 'time'>시간</h4>
-                        <h4 id = 'participants'>참여자</h4>
+                    <div className = "Xmark" onClick = {this.props.closeEventDetail}>
+                        <div className = "cross1">
+                            <div className = "cross2"></div>
+                        </div>
                     </div>
                     
-                    <div style = {{marginTop : 50}}>
-                        <h4 id = 'participantsList'>참여자 목록</h4>
-                    </div>
-                    <div id = 'button_group'>
-                        <div id = 'left_column' className = 'button_column' onClick = {this.interested}><h3 className = "buttons" >{this.state.interested}</h3></div>
-                        <div id = 'right_column' className = 'button_column' onClick = {this.participate}><h3 className = "buttons">{this.state.participate}</h3></div>
+                    <div className = 'DetailBody'>
+                        <h2 id = "title">{this.props.event.title}</h2>
+                        <div>
+                            <div style = {{marginTop : 50, float : 'left', width : '30%'}}>
+                                <h4 id = 'place'>장소</h4>
+                                <h4 id = 'time'>시간</h4>
+                                <h4 id = 'participants'>참여자</h4>
+                            </div>
+                            <div style = {{marginTop : 50, float : 'left', width : '70%'}}>
+                                <h4 id = 'place'>장소</h4>
+                                <h4 id = 'time'>{this.props.event.date} {this.props.event.time}</h4>
+                                <h4 id = 'participants'>{this.props.event.participate}</h4>
+                            </div>
+                            <div>
+
+                            </div>
+                        </div>
+                        <div style = {{marginTop : 50}}>
+                            <h4 id = 'participantsList'>참여자 목록</h4>
+                        </div>
+                        <div id = 'button_group'>
+                            <div id = 'left_column' className = 'button_column' onClick = {this.interested}><h3 className = "buttons" >{this.state.interested}</h3></div>
+                            <div id = 'right_column' className = 'button_column' onClick = {this.participate}><h3 className = "buttons">{this.state.participate}</h3></div>
+                        </div>
                     </div>
                 </div>
         );

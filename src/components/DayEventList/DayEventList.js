@@ -26,10 +26,14 @@ class DayEventList extends Component {
         this.eventBlock()
     }
 
-    toggleEventDetail = (id) => {
+    openEventDetail = (id) => {
         this.props.getEvent(id).then((res) => {
             this.setState({clicked : true, id : id})
         })
+    }
+
+    closeEventDetail = () => {
+        this.setState({clicked : false, id : null})
     }
 
     day = () => {
@@ -56,7 +60,7 @@ class DayEventList extends Component {
 
     eventBlock = () => {
         let events = this.props.events.map((event) => (
-                <EventBlock year = {this.props.year} month = {this.props.month} date = {this.props.date} event = {event} toggleEventDetail = {this.toggleEventDetail} day = {this.day()} />
+                <EventBlock year = {this.props.year} month = {this.props.month} date = {this.props.date} event = {event} openEventDetail = {this.openEventDetail} day = {this.day()} />
             )
         )
 
@@ -68,7 +72,7 @@ class DayEventList extends Component {
         return (
             <div id="event_modal_background" onClick={this.props.toggleDayEventList}>
                 {this.state.clicked
-                ? (<EventDetail id={this.state.id} />)
+                ? (<EventDetail id={this.state.id} closeEventDetail = {this.closeEventDetail} />)
                 : (<div id='event_modal'>
                         <h2 id='event_date'>
                             {this.props.year}년 {this.props.month}월 {this.props.date}일 {day}요일

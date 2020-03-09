@@ -14,3 +14,8 @@
 .dropdown-content a:hover { background-color: #DBDBDB; }
 
 .dropdown:hover .dropdown-content { display: block; }
+
+.Main {
+    overflow : hidden;
+    -webkit-overflow-scrolling: touch;
+}

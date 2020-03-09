@@ -52,12 +52,11 @@ export const getPostingEventList = () => (dispatch) => axios.get('/api/posting/e
     })
 
 
-export const participateEvent_ = (id) => ({
+export const participateEvent_ = () => ({
     type: actionTypes.PARTICIPATE_EVENT,
-    // target: event,
 });
 
-export const participateEvent = (id, type) => (dispatch) => axios.post(`/api/events/${id}/participate`, type)
+export const participateEvent = (id) => (dispatch) => axios.post(`/api/events/${id}/participate`, {"type" : "participate"})
     .then((res) => {
         dispatch(participateEvent_(res.data));
     });

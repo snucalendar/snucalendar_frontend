@@ -7,6 +7,8 @@ const Calendar = (props) => {
   const days = props.days.map((day, index) => (
     <Day
       key={index}
+      year={day.year}
+      month={day.month}
       date={day.date}
       events={day.events}
       isFirst={ index === 0 ? true : false }

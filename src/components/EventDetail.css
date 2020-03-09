@@ -1,0 +1,58 @@
+
+#detail_modal {
+    position : relative;
+    border-radius : 25px;
+    color : black;
+    width: 400px;
+    height: 500px;
+    background-color: white;
+}
+.button_column {
+    float: left;
+    width: 50%;
+    padding-top : 25px;
+    padding-bottom: 25px;
+}
+
+#left_column {
+    border-bottom-left-radius: 20px;
+}
+
+#right_column {
+    border-bottom-right-radius: 20px;
+}
+.button_column:hover {
+    cursor : pointer;
+    background-color: #ddd;
+    transition : 0.3s linear;
+    
+}
+#title {
+    margin : 25px;
+    font-size : 1.5em;
+    font-weight: 600;
+}
+
+#like_icon {
+    margin : 25px;
+}
+
+h2, h3, h4 {
+    margin: 25px;
+}
+
+#participantsList {
+    margin :25px;
+}
+
+.buttons {
+    display : inline;
+}
+
+#button_group {
+    text-align: center;
+    width : 100%;
+    margin-top : 10px;
+    position : absolute;
+    bottom : 0px;
+}

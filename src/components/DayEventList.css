@@ -1,0 +1,30 @@
+#event_modal_background {
+    position : fixed;
+    top: 0;
+    left: 0;
+    cursor : default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index : 900;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#event_modal {
+    border-radius: 25px;
+    width: 600px;
+    height: 800px;
+    z-index: 1000;
+    background-color: white;
+}
+
+#event_date {
+    color : black;
+    text-align: left;
+    font-weight: 500;
+    margin : 30px;
+    margin-left: 40px;
+}
+

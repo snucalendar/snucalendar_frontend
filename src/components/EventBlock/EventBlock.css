@@ -1,0 +1,34 @@
+.EventBlock {
+    margin : 0px;
+    padding-left : 40px;
+    padding-top : 20px;
+    padding-right : 20px;
+    padding-bottom : 30px;
+    cursor : pointer;
+
+}
+
+.Ball {
+    height : 14px;
+    width : 14px;
+    border-radius: 7px;
+    margin-top: 3px;
+    float : left;
+}
+
+.EventBlock:hover {
+    background-color: #ddd;
+    transition : 0.5s linear;
+}
+
+#event_block_title  {
+    color : black;
+    display : inline;
+    margin-left: 15px;
+}
+
+#event_block_date {
+    margin-top: 5px;
+    color : black;
+    margin-left: 30px;
+}

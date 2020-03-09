@@ -3,8 +3,7 @@
     padding-left : 40px;
     padding-top : 20px;
     padding-right : 20px;
-    padding-bottom : 20px;
-
+    padding-bottom : 30px;
     cursor : pointer;
 
 }
@@ -18,7 +17,6 @@
 }
 
 .EventBlock:hover {
-    opacity: 1;
     background-color: #ddd;
     transition : 0.5s linear;
 }

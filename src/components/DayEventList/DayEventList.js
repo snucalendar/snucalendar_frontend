@@ -55,7 +55,7 @@ class DayEventList extends Component {
         return (
             <div id="event_modal_background" onClick={this.props.toggleDayEventList}>
                 {this.state.clickedEvent 
-                ? (<EventDetail event={this.state.clickedEvent} />)
+                ? (<EventDetail id={this.state.clickedEvent.id} />)
                 : (<div id='event_modal'>
                         <h2 id='event_date'>
                             {this.props.year}년 {this.props.month}월 {this.props.date}일 {day}요일

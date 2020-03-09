@@ -11,18 +11,26 @@
 @font-face { font-family: 'GmarketSansLight'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'Nanum'; src: url('../../fonts/NanumGothic.woff') format('woff'); font-weight: normal; font-style: normal; }
 span {
-    font-family: 'Nanum';
+    font-family: Nanum;
     text-align: center;
     color: black;
-    font-size: 3em;
+    font-size: 1.2rem;
     vertical-align: middle;
 }
 
 .days {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    font-size: 1.5em;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
     text-align: center;
     vertical-align: middle;
     color: black;
+}
+
+.CalendarDays {
+    color: red;
+    font-family: Nanum;
+    display: grid;
+    grid-template-rows: repeat(5, calc(150vw / 7));
+    grid-template-columns: repeat(7, calc(100vw / 7));
 }

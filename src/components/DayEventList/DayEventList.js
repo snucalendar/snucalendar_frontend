@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import EventDetail from './EventDetail';
-import EventBlock from './EventBlock/EventBlock'
+import EventDetail from '../EventDetail/EventDetail';
+import EventBlock from '../EventBlock/EventBlock'
 import './DayEventList.css'
 
 

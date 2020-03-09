@@ -22,6 +22,13 @@ export const getEventList = () => (dispatch) => axios.get('/api/events/')
         dispatch(getEventList_(res.data));
     });
 
+
+export const keepKeyword_ = (keyword) => ({
+    type: actionTypes.KEEP_KEYWORD, target: keyword,
+});
+
+export const keepKeyword = (keyword) => (dispatch) => dispatch(keepKeyword_(keyword));
+
 export const getEventSearch_ = (survey_search_list) => ({
         type: actionTypes.GET_EVENT_SEARCH_LIST, target: survey_search_list,
       });
@@ -29,6 +36,7 @@ export const getEventSearch_ = (survey_search_list) => ({
 export const getEventSearch = (keyword) => (dispatch) => axios.get(`/api/search/${keyword}/`)
         .then((res) => {
           dispatch(getEventSearch_(res.data));
+          return res;
         });
       
 

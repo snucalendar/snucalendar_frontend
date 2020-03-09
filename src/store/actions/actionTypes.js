@@ -9,6 +9,7 @@ export const GET_EVENT_LIST = 'GET_EVENT_LIST';
 export const GET_EVENT_SEARCH_LIST = 'GET_EVENT_SEARCH_LIST';
 export const GET_MYEVENT_LIST = 'GET_MYEVENT_LIST';
 export const PARTICIPATE_EVENT = 'PARTICIPATE_EVENT';
+export const KEEP_KEYWORD = 'KEEP_KEYWORD';
 
 //post actions
 export const ADD_POST = 'ADD_POST';
@@ -26,5 +27,7 @@ export const SIGNUP = 'SIGNUP';
 export const CHECK_LOGIN = 'CHECK_LOGIN'
 export const GET_USER = 'GET_USER';
 export const GET_USER_INFO = 'GET_USER_INFO';
+
+export const KEEP_PAGE = 'KEEP_PAGE';
 
 export const DEFAULT = 'DEFAULT';

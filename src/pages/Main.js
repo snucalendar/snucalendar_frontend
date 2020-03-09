@@ -1,15 +1,15 @@
 import React, { Component, createRef } from 'react';
 import { Ref } from 'semantic-ui-react'
 import { connect } from 'react-redux';
-import Calendar from '../components/Calendar';
-import Event from '../components/Event';
-import HeaderPart from '../components/Header';
+import Calendar from '../components/Calendar/Calendar';
+import Event from '../components/Event/Event';
 import './Main.css';
 
 import * as actionCreators from '../store/actions/index';
 
 export const mapDispatchToProps = (dispatch) => ({
   getCalendarMonth: (year, month) => dispatch(actionCreators.getCalendarMonth(year, month)),
+  keepPage: (pageName) => dispatch(actionCreators.keepPage(pageName)),
 });
 
 export const mapStateToProps = (state) => ({
@@ -27,6 +27,10 @@ export class Main extends Component {
     currentYear,
     currentMonth,
     event_list: [],
+    event_list_byletter: [],
+    event_list_byletter_temp: [],
+    events_temp: [],
+    isClicked: 'byletter',
     //eventClicked:false,
     //modalEvent: event,
   };
@@ -43,13 +47,36 @@ export class Main extends Component {
             .map(date => date.events
             .map((ev, index) => (
               <Event
+                key = {index}
                 title = {ev.title}
                 date = {ev.date}
                 time = {ev.time}
-            //    eventClicked = {this.manageModal}
               />
             )))
-        });
+        })
+      
+      this.setState({
+        event_list_byletter_temp: this.props.month_calendar
+          .filter((event) => (NowDate <= event.date && event.date<= NowDate+6))
+          .map(e => this.state.events_temp = this.state.events_temp.concat(e.events))
+      })
+      
+        this.setState({
+          event_list_byletter: this.state.events_temp
+            .sort(function ascending (a, b) {
+            if(a.title < b.title) return -1;
+            else if(a.title == b.title) return 0;
+            else return 1;
+          })
+          .map((ev, index) => (
+            <Event
+              key = {index}
+              title = {ev.title}
+              date = {ev.date}
+              time = {ev.time}
+            />
+          ))
+      })
 
     };
 /*
@@ -64,12 +91,12 @@ export class Main extends Component {
 
     if (newMonth > 12) {
       newYear++;
-      newMonth = newMonth - 12;
+      newMonth = newMonth - 12;                                                                                                                                                                                          
     } else if (newMonth < 1) {
       newYear--;
       newMonth = newMonth + 12;
     }
-
+            
     this.props.getCalendarMonth(newYear, newMonth)
       .then(() => {
         this.setState({
@@ -85,6 +112,7 @@ export class Main extends Component {
           .map((date) => date.events
           .map((ev, index) => (
             <Event
+              key = {index}
               title = {ev.title}
               date = {ev.date}
               time = {ev.time}
@@ -98,24 +126,29 @@ export class Main extends Component {
 
   render() {
     const firstDay = new Date(this.state.currentYear, this.state.currentMonth-1, 1).getDay();
-    return ( // 아예 Calendar에서 날짜와 이벤트를 받아오는 게 나을 수도...?
+    this.props.keepPage('Calendar');
+    return (
       <Ref innerRef = {this.contextRef}>
       <div>
-      <HeaderPart menu="Calendar" contextRef = {this.contextRef}/>
       <div style={{'marginTop' : 20, marginRight : 0, marginLeft : 0}}>
         <h1 style = {{textAlign:'center'}}></h1>
         <Calendar month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} firstDay={firstDay} /> <br />
         <div style = {{width : 1100, marginLeft : 'auto', marginRight : 'auto'}}>
           <div class="dropdown">
-            <p class = "dropbtn">
-              가나다순 <i class="fa fa-angle-down" />
-            </p>
+            <button class = "dropbtn">
+              {this.state.isClicked} <i class="fa fa-angle-down" />
+            </button>
             <div class="dropdown-content">
-              <a>임박순</a>
-              <a>인기순</a>
+              <button onClick={() => this.setState({isClicked: 'byletter'})}>가나다순</button>
+              <button onClick={() => this.setState({isClicked: 'byday'})}>임박순</button>
+              <button onClick={() => this.setState({isClicked: 'byposting'})}>등록순</button>
+              <button onClick={() => this.setState({isClicked: 'bypopular'})}>인기순</button> 
             </div>
+            {this.state.isClicked === 'byposting' ? this.state.event_list :
+              (this.state.isClicked === 'byletter' ? this.state.event_list_byletter :
+                null )}
+            {console.log(this.state.isClicked)}
           </div>
-          {this.state.event_list}
         </div>
       </div>
 

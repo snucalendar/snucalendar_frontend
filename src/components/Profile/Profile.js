@@ -4,7 +4,7 @@ import {
 } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actionCreators from '../store/actions/index';
+import * as actionCreators from '../../store/actions/index';
 
 export const mapDispatchToProps = (dispatch) => ({
   logOut: () => dispatch(actionCreators.logOut()),
@@ -12,7 +12,7 @@ export const mapDispatchToProps = (dispatch) => ({
   });
 
 export const mapStateToProps = (state) => ({
-  email: state.us.info.email,
+  username: state.us.info.username,
 });
 
 export class Profile extends Component {
@@ -33,21 +33,21 @@ export class Profile extends Component {
   }
   
   render() {
-    if (this.props.email != '') {
+    if (this.props.username != '') {
       return (
-        <Dropdown className="DropDownClass" id="DropDownClass" style={this.props.style} as={Button} text="Profile" size="large" direction="left">
+        <Dropdown className="DropDownClass" id="DropDownClass" style={this.props.style} as={Button} text="내 정보" size="large" direction="left">
           <Dropdown.Menu className="Menu" id="Menu" as={Segment}>
             <Dropdown.Item id="upperItem" onClick={() => this.props.history.push('/mypage/')}>
               <Icon centered name="user circle" className="UserIcon" size="huge" />
-              <div id="email">
+              <div id="username">
                 {'Hello, '}
-                {this.props.email}
+                {this.props.username}
                 {' !'}
               </div>
             </Dropdown.Item>
             <Dropdown.Item className="logOut" id="logOut" onClick={() => this.logoutHandler()} basic as={Button} floating>
             <Icon id="keyIcon" name="key" />
-              Log Out
+              로그아웃
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
@@ -60,11 +60,11 @@ export class Profile extends Component {
         icon="user"
         size="large"
         style={{
-          margin: 25, backgroundColor: '#a3c6c4', width: 110, color: 'black',
+          margin: 25, backgroundColor: '#FFFFFF', width: 110, color: 'black',
         }}
         onClick={() => this.props.history.push('/login')}
       >
-        LogIn
+        로그인
       </Button>
     );
   }

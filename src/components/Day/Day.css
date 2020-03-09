@@ -14,9 +14,7 @@ a:active{
 .event {
     color: black;
     overflow: hidden;
-    width: 150px;
     white-space: nowrap;
-    font-size: 18px;
     background-color: #CEF6E3;
     text-overflow: ellipsis;
     padding: 5px;
@@ -25,9 +23,7 @@ a:active{
 .event_study {
     color: black;
     overflow: hidden;
-    width: 150px;
     white-space: nowrap;
-    font-size: 18px;
     background-color: #FFCD12;
     text-overflow: ellipsis;
     padding: 5px;

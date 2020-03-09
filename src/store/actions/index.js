@@ -11,6 +11,7 @@ export {
     getPostingEventList,
     participateEvent,
     getEventSearch,
+    keepKeyword,
 } from './event';
 
 export {
@@ -28,3 +29,5 @@ export {
     logOut,
     getUserInfo,
 } from './user';
+
+export { keepPage } from './goto';

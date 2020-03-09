@@ -1,6 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
+    keyword: '',
     event_list: [],
     myEvent_list: [],
     searchEvent_list: [],
@@ -17,6 +18,8 @@ const EventListReducer = (state = initialState, action = actionTypes.DEFAULT) =>
             return { ...state, searchEvent_list: action.target };
         case actionTypes.GET_POSTING_EVENT_LIST:
             return { ...state, posting_event_list: action.target };
+        case actionTypes.KEEP_KEYWORD:
+            return { ...state, keyword: action.target };
         default:
             break;
     }

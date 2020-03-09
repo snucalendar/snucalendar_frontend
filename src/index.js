@@ -13,6 +13,7 @@ import { createBrowserHistory } from 'history';
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+axios.get('/api/token')
 
 
 const history = createBrowserHistory();

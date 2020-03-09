@@ -3,7 +3,7 @@ import { post } from 'axios';
 import { Input, Form, Modal, Button, Search } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import { connect } from 'react-redux';
-import * as actionCreators from '../store/actions/index';
+import * as actionCreators from '../../store/actions/index';
 import _ from 'lodash'
 
 export class AddPost extends Component {

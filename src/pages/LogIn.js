@@ -35,7 +35,7 @@ export class LoginPage extends Component {
       <Grid className="login" id="login" textAlign="center">
         <Grid.Row id="secondRow" style={{ height: 'calc(100vh - 165px)' }} verticalAlign="middle">
           <Grid.Column id="rowColumn" style={{ maxWidth: 450, minWidth: 300 }}>
-            <Header id="surBing" style={{ fontSize: '4em' }} as="h1" textAlign="center">
+            <Header id="surBing" style={{ fontSize: '2em' }} as="h3" textAlign="center">
              로그인
             </Header>
             <Form size="large">

@@ -1,10 +1,12 @@
 
-#detail_modal {
+#event_detail {
     position : relative;
     border-radius : 25px;
     color : black;
-    width: 400px;
-    height: 500px;
+    height : 0;
+    height: 100%;
+    padding-left : 20%;
+    padding-right : 20%;
     background-color: white;
 }
 .button_column {

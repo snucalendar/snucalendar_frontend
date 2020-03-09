@@ -46,7 +46,7 @@ class EventDetail extends Component {
 
     render() {
         return (
-                <div id = 'detail_modal'>
+                <div id = 'event_detail'>
                     <h2 id = "title">{this.props.event.title}</h2>
                     <div style = {{marginTop : 50, float : 'left', }}>
                         <h4 id = 'place'>장소</h4>

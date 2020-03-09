@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-import EventDetail from './EventDetail';
-import EventBlock from './EventBlock/EventBlock'
+import EventDetail from '../EventDetail/EventDetail';
+import EventBlock from '../EventBlock/EventBlock'
 
 import { connect } from 'react-redux';
-import * as actionCreators from '../store/actions/index';
+import * as actionCreators from '../../store/actions/index';
 
 import './DayEventList.css'
 

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-
 import * as actionCreators from '../store/actions/index';
 import './EventDetail.css'
 
@@ -37,7 +36,7 @@ class EventDetail extends Component {
     }
 
     componentDidMount(){
-        this.props.getEvent(this.props.id).then(() => this.checkMark())
+        this.checkMark()
     }
     componentDidUpdate(prevProps){
         if(this.props != prevProps){

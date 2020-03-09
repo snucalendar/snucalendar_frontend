@@ -1,12 +1,23 @@
 import React, { Component } from "react";
+
 import EventDetail from './EventDetail';
 import EventBlock from './EventBlock/EventBlock'
+
+import { connect } from 'react-redux';
+import * as actionCreators from '../store/actions/index';
+
 import './DayEventList.css'
 
 
+export const mapDispatchToProps = (dispatch) => ({
+    getEvent: (id) => dispatch(actionCreators.getEvent(id)),
+    participateEvent: (id, type) => dispatch(actionCreators.participateEvent(id, type)),
+});
+
 class DayEventList extends Component {
     state = {
-        clickedEvent: null,
+        clicked: false,
+        id : null,
         events : [],
         modal : null,
     }
@@ -16,7 +27,9 @@ class DayEventList extends Component {
     }
 
     toggleEventDetail = (id) => {
-        this.setState({ clickedEvent: this.props.events.find((event) => event.id == id) });
+        this.props.getEvent(id).then((res) => {
+            this.setState({clicked : true, id : id})
+        })
     }
 
     day = () => {
@@ -54,8 +67,8 @@ class DayEventList extends Component {
         const day = this.day()
         return (
             <div id="event_modal_background" onClick={this.props.toggleDayEventList}>
-                {this.state.clickedEvent 
-                ? (<EventDetail id={this.state.clickedEvent.id} />)
+                {this.state.clicked
+                ? (<EventDetail id={this.state.id} />)
                 : (<div id='event_modal'>
                         <h2 id='event_date'>
                             {this.props.year}년 {this.props.month}월 {this.props.date}일 {day}요일
@@ -69,4 +82,4 @@ class DayEventList extends Component {
     }
 }
 
-export default DayEventList;
+export default connect(null, mapDispatchToProps)(DayEventList);

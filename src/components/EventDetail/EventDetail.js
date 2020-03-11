@@ -46,6 +46,7 @@ class EventDetail extends Component {
     }
 
     render() {
+        console.log(this.props.event)
         return (
                 <div id = 'event_detail' onScroll = {e => e.stopPropagation()}>
                     <div className = "Xmark" onClick = {this.props.closeEventDetail}>
@@ -53,26 +54,25 @@ class EventDetail extends Component {
                             <div className = "cross2"></div>
                         </div>
                     </div>
-                    
                     <div className = 'DetailBody'>
-                        <h2 id = "title">{this.props.event.title}</h2>
-                        <div>
-                            <div style = {{marginTop : 50, float : 'left', width : '30%'}}>
-                                <h4 id = 'place'>장소</h4>
-                                <h4 id = 'time'>시간</h4>
-                                <h4 id = 'participants'>참여자</h4>
+                        <h3 id = "title">{this.props.event.title}</h3>
+                        <h3 id = "author">{this.props.info.username}
+                            <span style = {{float : "right", fontSize : '2vw'}}>{this.props.event.date} {this.props.event.time}</span>
+                        </h3>
+                        <div className = "MainContent">
+                            <div className = 'Poster'>
                             </div>
-                            <div style = {{marginTop : 50, float : 'left', width : '70%'}}>
-                                <h4 id = 'place'>장소</h4>
-                                <h4 id = 'time'>{this.props.event.date} {this.props.event.time}</h4>
-                                <h4 id = 'participants'>{this.props.event.participate}</h4>
-                            </div>
-                            <div>
-
+                            <div className = 'Content'>
+                                <p>{this.props.event.content}</p>
                             </div>
                         </div>
-                        <div style = {{marginTop : 50}}>
-                            <h4 id = 'participantsList'>참여자 목록</h4>
+                        <div className = "ParticipantList">
+                            <p className = 'ParticipantCount'><span className = "ParticipantCount" style = {{fontWeight : 700}}>총 {this.props.event.participate.length}명</span> 참여 예정</p>
+                            <div className = "ParticipantIcons"></div>
+                            <p className = 'FriendCount'><span className = "FriendCount" style = {{fontWeight : 700}}>총 {this.props.event.participate.length}명</span> 참여 예정</p>
+                        </div>
+                        <div className = "CommunityTab">
+
                         </div>
                         <div id = 'button_group'>
                             <div id = 'left_column' className = 'button_column' onClick = {this.interested}><h3 className = "buttons" >{this.state.interested}</h3></div>

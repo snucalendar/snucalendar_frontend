@@ -13,9 +13,9 @@
 }
 
 #event_modal {
-    border-radius: 25px;
-    width: 600px;
-    height: 800px;
+    border-radius: 10px;
+    width: 80%;
+    height: 80%;
     z-index: 1000;
     background-color: white;
 }
@@ -24,7 +24,9 @@
     color : black;
     text-align: left;
     font-weight: 500;
-    margin : 30px;
-    margin-left: 40px;
+    font-size : 4vw;
+    width : 70vw;
+    height : 5vw;
+    margin : 6vw;
 }
 

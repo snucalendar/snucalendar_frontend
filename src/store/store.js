@@ -9,6 +9,12 @@ import UserReducer from './reducers/UserReducer';
 import PostListReducer from './reducers/PostListReducer';
 import PostReducer from './reducers/PostReducer';
 import CalendarReducer from './reducers/CalendarReducer';
+import QnAReducer from './reducers/QnAReducer'
+import QnAListReducer from './reducers/QnAListReducer'
+import CommentReducer from './reducers/CommentReducer'
+import CommentListReducer from './reducers/CommentListReducer'
+import PageControlReducer from './reducers/PageControlReducer'
+
 
 const rootReducer = combineReducers({
   us: UserReducer,
@@ -17,6 +23,11 @@ const rootReducer = combineReducers({
   psl: PostListReducer,
   ps: PostReducer,
   cd: CalendarReducer,
+  qa: QnAReducer,
+  qal: QnAListReducer,
+  cm: CommentReducer,
+  cml: CommentListReducer,
+  pg: PageControlReducer
 });
 
 const logger = () => (next) => (action) => {

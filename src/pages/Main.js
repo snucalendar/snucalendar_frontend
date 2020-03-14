@@ -129,7 +129,7 @@ export class Main extends Component {
     const firstDay = new Date(this.state.currentYear, this.state.currentMonth-1, 1).getDay();
     return (
       <Ref innerRef = {this.contextRef}>
-      <div>
+      <div className = "Main">
       <div style={{marginRight : 0, marginLeft : 0}}>
         <Calendar year = {this.state.currentYear} month={this.state.currentMonth} days={this.props.month_calendar} changeMonth={this.changeMonth} firstDay={firstDay} /> <br />
         <div style = {{width : 1100, marginLeft : 'auto', marginRight : 'auto'}}>

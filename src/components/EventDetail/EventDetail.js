@@ -3,10 +3,15 @@ import { connect } from 'react-redux';
 
 import * as actionCreators from '../../store/actions/index';
 import './EventDetail.css'
+import CommentList from '../../components/CommentList/CommentList'
+import QnAList from '../../components/QnAList/QnAList'
+
+import EventSummaryBar from '../../components/EventSummaryBar/EventSummaryBar'
 
 export const mapDispatchToProps = (dispatch) => ({
     getEvent: (id) => dispatch(actionCreators.getEvent(id)),
-    participateEvent: (id, type) => dispatch(actionCreators.participateEvent(id, type)),
+    getQnAs : (id) => dispatch(actionCreators.getQnAList(id)),
+    getComments : (id) => dispatch(actionCreators.getCommentList(id))
 });
 
 const mapStateToProps = (state) => ({
@@ -15,51 +20,66 @@ const mapStateToProps = (state) => ({
 })
 
 class EventDetail extends Component {
+
     state = {
-        interested : '관심있음',
-        participate : '참여하기',
+        communityTab : 'comment'
     }
 
-    participate = (e) => {
-        this.props.participateEvent(this.state.event.id, { type: e.target.value })
-    }
-
-    interested = () => {
-
-    }
-
-    checkMark = () => {
-        const interest_filter = this.props.event.interest.filter((id) => (id == this.props.info.id))
-        const participate_filter = this.props.event.participate.filter((id) => (id == this.props.info.id))
-        const interested = interest_filter.length == 1 ? '관심있음 ✔' : '관심있음'
-        const participate = participate_filter.length == 1 ? '참여하기 ✔' : '참여하기'
-        this.setState({interested : interested, participate : participate})
+    changeCommunityTabCSS = (e) => {
+        var tabs = document.getElementsByClassName("TabLink");
+        for(var i=0;i < tabs.length ;i++){
+            tabs[i].style.color = '#81848e';
+            tabs[i].style.backgroundColor = '#f0f1f3';
+        }
+        
+        e.target.style.color = '#f0f1f3';
+        e.target.style.backgroundColor = '#81848e'
+        this.forceUpdate()
+        
     }
 
     componentDidMount(){
-        this.props.getEvent(this.props.id).then(() => this.checkMark())
-    }
-    componentDidUpdate(prevProps){
-        if(this.props != prevProps){
-            this.checkMark()
-        }
+        this.props.getComments(this.props.event.id)
+        this.props.getQnAs(this.props.event.id)
     }
 
     render() {
         return (
-                <div id = 'detail_modal'>
-                    <h2 id = "title">{this.props.event.title}</h2>
-                    <div style = {{marginTop : 50, float : 'left', }}>
-                        <h4 id = 'place'>장소</h4>
-                        <h4 id = 'time'>시간</h4>
-                        <h4 id = 'participants'>참여자</h4>
+                <div id = 'event_detail'>
+                    <div className = "Xmark" onClick = {this.props.closeEventDetail}>
+                        <div className = "cross1">
+                            <div className = "cross2"></div>
+                        </div>
                     </div>
-                    <div style = {{marginTop : 50}}>
-                        <h4 id = 'participantsList'>참여자 목록</h4>
+                    <div className = 'DetailBody'>
+                        <h3 id = "title">{this.props.event.title}</h3>
+                        <h3 id = "author">{this.props.info.username}
+                            <span style = {{float : "right", fontSize : '2vw'}}>{this.props.event.date} {this.props.event.time}</span>
+                        </h3>
+                        <div className = "MainContent">
+                            <div className = 'Poster'>
+                            </div>
+                            <div className = 'Content'>
+                                <p>{this.props.event.content}</p>
+                            </div>
+                        </div>
+                        <div className = "ParticipantList">
+                            <p className = 'ParticipantCount'><span className = "ParticipantCount" style = {{fontWeight : 700}}>총 {this.props.event.participate.length}명</span> 참여 예정</p>
+                            <div className = "ParticipantIcons"></div>
+                            <p className = 'FriendCount'><span className = "FriendCount" style = {{fontWeight : 700}}>총 {this.props.event.participate.length}명</span> 참여 예정</p>
+                        </div>
+                        <div className = "CommunityTab">
+                            <div className = "CommunityTabButton">
+                                <button onClick = {(e) => {this.changeCommunityTabCSS(e); this.setState({communityTab : 'comment'})}} className = "TabLink" id = "commentButton">덧글</button>
+                                <button onClick = {(e) => {this.changeCommunityTabCSS(e); this.setState({communityTab : 'qna'})}} className = "TabLink" id = "QnAButton">Q&A</button>
+                            </div>
+                            <div className = "CommentORQnA">
+                                { this.state.communityTab == 'comment' ? (<CommentList id = {this.props.event.id}/>) : (<QnAList id = {this.props.event.id}/>)}
+                            </div>
+                        </div>
                     </div>
-                    <div id = 'button_group'>
-                        <div id = 'left_column' className = 'button_column' onClick = {this.interested}><h3 className = "buttons" >{this.state.interested}</h3></div>
-                        <div id = 'right_column' className = 'button_column' onClick = {this.participate}><h3 className = "buttons">{this.state.participate}</h3></div>
+                    <div className = "Footer">
+                        <EventSummaryBar type event = {this.props.event}/>
                     </div>
                 </div>
         );

@@ -27,7 +27,7 @@ const Calendar = (props) => {
       </div>
 
       <div style={{width: '100%'}}>
-        <div style={{'border-bottom': '1px solid #D8D8D8', backgroundColor: '#f7f7f8', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr'}}>
+        <div className = "CalendarDay">
           <span className = 'days' style = {{color: 'red'}}>일</span>
           <span className = 'days'>월</span>
           <span className = 'days'>화</span>

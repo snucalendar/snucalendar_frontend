@@ -1,0 +1,102 @@
+.EventSummaryBar {
+    color : black;
+    height : 10vw;
+    width : 100%;
+    text-align : center;
+    position: relative;
+}
+
+.Like{
+    font-size : 3vw;
+    float : left;
+    width : 20%;
+    height : 10vw;
+    vertical-align: middle;
+    
+}
+
+.Comment{
+    font-size : 3vw;
+    float : left;
+    width : 20%;
+    height : 10vw;
+}
+
+.QnA {
+    font-size : 3vw;
+    float : left;
+    width : 20%;
+    height : 10vw;
+}
+
+.Interest {
+    float : left;
+    width : 15%;
+}
+
+.LikeIcon{
+    margin-top : 1.5vw;
+    vertical-align: middle;
+    margin-right : 0vw;
+    float : left;
+    padding : 0px;
+    line-height: 7vw;
+    text-align : center;
+    background-color: #C0C0C0;
+    font-size : 70%;
+    width : 7vw;
+    height : 7vw;
+    border-radius: 100%;
+}
+
+.CommentIcon{
+    margin-top : 1.5vw;
+    vertical-align: middle;
+    float : left;
+    padding : 0px;
+    line-height: 7vw;
+    text-align : center;
+    background-color: #C0C0C0;
+    font-size : 80%;
+    width : 7vw;
+    height : 7vw;
+    border-radius: 100%;
+}
+
+.QnAIcon {
+    margin-top : 1.5vw;
+    float : left;
+    padding : 0px;
+    line-height: 7vw;
+    text-align : center;
+    background-color: #C0C0C0;
+    font-size : 70%;
+    width : 7vw;
+    height : 7vw;
+    border-radius: 100%;
+}
+
+.InterestIcon {
+    float : right;
+    padding : 0px;
+    line-height: 4vw;
+    text-align : center;
+    background-color: #C0C0C0;
+    font-size : 3vw;
+    width : 9vw;
+    height : 9vw;
+    border-radius: 100%;
+}
+
+.ParticipateIcon {
+    margin-right : 1vw;
+    float : right;
+    padding : 0px;
+    line-height: 4vw;
+    text-align : center;
+    background-color: #C0C0C0;
+    font-size : 3vw;
+    width : 9vw;
+    height : 9vw;
+    border-radius: 100%;
+}

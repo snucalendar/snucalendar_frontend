@@ -1,58 +1,158 @@
 
-#detail_modal {
+#event_detail {
     position : relative;
-    border-radius : 25px;
     color : black;
-    width: 400px;
-    height: 500px;
+    height: 100vh;
+    width : 100vw;
     background-color: white;
 }
-.button_column {
-    float: left;
-    width: 50%;
-    padding-top : 25px;
-    padding-bottom: 25px;
+.DetailBody {
+    padding-top : 1vw;
+    background-color: #f0f1f3;
+    height : 100vh;
 }
 
-#left_column {
-    border-bottom-left-radius: 20px;
+.MainContent {
+    padding : 5vw;
+    border-bottom : solid #d8d8d8;
+    border-width : thin;
 }
 
-#right_column {
-    border-bottom-right-radius: 20px;
+.Poster {
 }
-.button_column:hover {
-    cursor : pointer;
-    background-color: #ddd;
-    transition : 0.3s linear;
-    
+
+.Content {
+
+}
+
+.ParticipantList {
+    padding : 2vw;
+    border-bottom : solid #d8d8d8;
+    border-width : thin;
+}
+
+.ParticipantCount {
+    font-size : 4vw;
+}
+
+.CommunityTabButton{
+    width : 100vw;
+    height : 10vw;
+}
+
+.CommentORQnA {
+}
+
+.CommunityTab {
+    padding : 3vw;
+    width : 100vw;
+    height : 100%;
+}
+
+.Footer {
+    background-color: white;
+    position : absolute;
+    bottom : 0;
+    padding-left : 5vw;
+    padding-right : 5vw;
+    width : 100vw;
+    padding-top : 2vw;
+}
+
+.CloseButton {
+    border : none;
+    font-size: 20px;
+    background-color: white;
 }
 #title {
-    margin : 25px;
-    font-size : 1.5em;
+    font-size : 4vw;
     font-weight: 600;
+    margin : 0px;
+    padding-top : 1vw;
+    padding-bottom : 1.5vw;
+    padding-left : 5vw;
+    border-bottom : solid #d3d3d3;
+    border-width : thin;
 }
 
-#like_icon {
-    margin : 25px;
+#author {
+    font-size : 3vw;
+    font-weight: 300;
+    margin : 0px;
+    padding-top : 1vw;
+    padding-bottom : 1.5vw;
+    padding-left : 5vw;
+    border-bottom : solid #d3d3d3;
+    border-width : thin;
 }
 
-h2, h3, h4 {
-    margin: 25px;
+#commentButton {
+    line-height: 7vw;
+    text-align : center;
+    float : left;
+    border-radius: 2vw;
+    font-size : 3.5vw;
+    color: #f0f1f3; 
+    height : 8vw;
+    width : 14vw;
+    background-color: #81848e;
+    border : solid 0.3vw #81848e;
+    margin-right : 2vw;
+}
+#commentButton:active {
+    background-color: #f0f1f3;
+    color: #81848e;
 }
 
-#participantsList {
-    margin :25px;
+#QnAButton {
+    line-height: 7vw;
+    text-align : center;
+    float : left;
+    border-radius: 2vw;
+    font-size : 3.5vw;
+    color: #81848e; 
+    height : 8vw;
+    width : 14vw;
+    background-color: #f0f1f3;
+    border : solid 0.3vw #81848e;
+    margin-right : 2vw;
 }
 
-.buttons {
-    display : inline;
+*:focus {
+    outline: none;
 }
 
-#button_group {
-    text-align: center;
-    width : 100%;
-    margin-top : 10px;
-    position : absolute;
-    bottom : 0px;
+#QnAButton .TabActivate {
+    background-color: #81848e;
+    color: #f0f1f3;
+}
+
+#QnAButton:active {
+    background-color: #81848e;
+    color: #f0f1f3;
+}
+
+.cross1 {
+    height: 6vw;
+    width: 0.3vw;
+    border-radius: 2px;
+    margin-left: 12px;
+    background-color: black;
+    transform: rotate(45deg);
+    z-index: 1;
+}
+
+.cross2 {
+    height: 6vw;
+    width: 0.3vw;
+    border-radius: 2px;
+    background-color: black;
+    transform: rotate(90deg);
+    z-index: 2;
+}
+
+.Xmark {
+    width: 6vw;
+    height: 6vw;
+    margin : 2vw;
 }

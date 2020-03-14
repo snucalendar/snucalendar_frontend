@@ -12,6 +12,19 @@ class Day extends Component {
     this.setState({ isClicked: e.target.id === 'event_modal_background' ? false : true })
   }
 
+  makeBodyUnscrollable = (modal) => {
+    if(modal) {
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${window.scrollY}px`;
+    }
+    else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+  }
+
   render() {
     const events = this.props.events
     .filter(e => e.event_type === 'club')
@@ -22,6 +35,7 @@ class Day extends Component {
     .map(e => <p class="event_study">{e.title}</p>);
 
     const modal = this.state.isClicked && this.props.events.length ? <DayEventList year={this.props.year} month={this.props.month} date={this.props.date} events={this.props.events} toggleDayEventList={this.toggleDayEventList} /> : null;
+    this.makeBodyUnscrollable(modal)
     const colStart = this.props.isFirst ? this.props.firstDay+1 : 'auto'
     return (
       <a style={{gridColumnStart : colStart, width:'(100/7)vw', height: 'auto', border: '0.01px solid #A57E7E'}} onClick={this.toggleDayEventList}>

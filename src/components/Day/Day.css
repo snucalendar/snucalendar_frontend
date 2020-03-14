@@ -3,6 +3,7 @@ a{
 }
 
 a:hover{
+    cursor : pointer;
     background-color: #D8D8D8;
     color: #A57E7E;
 }

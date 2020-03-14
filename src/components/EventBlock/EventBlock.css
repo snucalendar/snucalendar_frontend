@@ -1,34 +1,46 @@
 .EventBlock {
+    color : black;
     margin : 0px;
-    padding-left : 40px;
-    padding-top : 20px;
-    padding-right : 20px;
-    padding-bottom : 30px;
+    padding-left : 5vw;
+    padding-top : 2vw;
+    padding-right : 5vw;
+    padding-bottom : 2vw;
     cursor : pointer;
 
 }
 
 .Ball {
-    height : 14px;
-    width : 14px;
-    border-radius: 7px;
-    margin-top: 3px;
+    height : 3vw;
+    width : 3vw;
+    border-radius: 3vw;
+    margin-top: 0.5vw;
     float : left;
 }
 
 .EventBlock:hover {
-    background-color: #ddd;
+    background-color: #DCDCDC;
     transition : 0.5s linear;
+}
+
+.dDay {
+    float : right;
+    margin-top : 1vw;
+    font-size : 4vw;
 }
 
 #event_block_title  {
     color : black;
+    font-size : 3vw;
+    font-weight : 100;
     display : inline;
-    margin-left: 15px;
+    margin-left: 2vw;
 }
 
 #event_block_date {
-    margin-top: 5px;
+    margin-top: 1vw;
     color : black;
-    margin-left: 30px;
+    font-size : 2.5vw;
+    font-weight : 100;
+    margin-left: 5vw;
 }
+

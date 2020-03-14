@@ -1,0 +1,42 @@
+.CommentBlock {
+    padding : 3vw;
+}
+
+.PartraitColumn {
+    float : left;
+    width : 15%;
+}
+
+.Portrait {
+    width : 10vw;
+    border-radius: 5vw;
+    background-color : gray;
+    height : 10vw;
+}
+.CommentColumn{
+    float : left;
+    width : 85%;
+}
+
+.AuthorName {
+    margin-top : 2vw;
+    margin-bottom : 5vw;
+}
+
+.CommentBody {
+    font-size : 3.2vw;
+}
+
+.DaysPassed {
+    margin-top : 0.5vw;
+    font-size : 2vw;
+    float : left;
+}
+
+.AnswerComment{
+    float : left;
+    margin-top: 0;
+    margin-left : 3vw;
+    font-size : 3vw;
+
+}

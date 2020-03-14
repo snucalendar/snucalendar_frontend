@@ -1,0 +1,75 @@
+.QnABlock {
+    width : 90vw;
+    margin : 2vw;
+}
+
+.AnswerComplete {
+    font-size : 3vw;
+    margin : 0vw;
+    margin-bottom : 2vw;
+    color : rgb(22, 155, 199);
+}
+
+.AnswerNotComplete {
+    margin : 0vw;
+    font-size : 3vw;
+    margin-bottom : 2vw;
+}
+
+.Q, .A{
+    font-size : 3.5vw;
+    margin : 0;
+    width : 100%;
+}
+
+
+
+.Question {
+    font-size : 3.5vw;
+}
+
+.Answer {
+    font-size : 3.5vw;
+}
+
+.QuestionAuthor {
+    color : gray;
+    float : left;
+    font-size : 3vw;
+    margin-bottom : 3vw;
+    margin-right : 2vw;
+}
+
+.AnswerAuthor {
+    color : gray;
+    float : left;
+    font-size : 3vw;
+    margin-bottom : 3vw;
+    margin-right : 2vw;
+}
+
+.QuestionUploadDate {
+    color : gray;
+    float : left;
+    font-size : 3vw;
+}
+
+.AnswerUploadDate {
+    color : gray;
+    float : left;
+    font-size : 3vw;
+}
+
+.QColumn, .AColumn {
+    float : left;
+    width : 5%;
+    display:-webkit-box;
+    flex-direction: column;
+    height : 10vw;
+}
+
+.QuestionColumn, .AnswerColumn {
+    float : left;
+    width : 95%;
+    
+}

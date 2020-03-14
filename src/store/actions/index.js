@@ -10,6 +10,8 @@ export {
     getMyEventList,
     getPostingEventList,
     participateEvent,
+    interestEvent,
+    cancelPreference,
     getEventSearch,
     keepKeyword,
 } from './event';
@@ -30,4 +32,26 @@ export {
     getUserInfo,
 } from './user';
 
-export { keepPage } from './goto';
+
+export {
+    getComment,
+    getCommentList,
+    addComment,
+    editComment,
+    deleteComment
+} from './comment'
+
+export {
+    getQnA,
+    getQnAList,
+    addQnA,
+    editQnAQuestion,
+    deleteQnA,
+    editQnAAnswer,
+    deleteQnAAnswer,
+} from './qna'
+
+export { 
+    keepPage,
+    keepCommunicationTab
+ } from './goto';

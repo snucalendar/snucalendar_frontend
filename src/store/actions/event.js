@@ -64,7 +64,25 @@ export const participateEvent_ = () => ({
     type: actionTypes.PARTICIPATE_EVENT,
 });
 
-export const participateEvent = (id) => (dispatch) => axios.post(`/api/events/${id}/participate`, {"type" : "participate"})
+export const participateEvent = (id) => (dispatch) => axios.post(`/api/events/${id}/participate/`, {"type" : "participate"})
     .then((res) => {
         dispatch(participateEvent_(res.data));
     });
+
+export const interestEvent_ = () => ({
+    type: actionTypes.INTEREST_EVENT,
+});
+
+export const interestEvent = (id) => (dispatch) => axios.post(`/api/events/${id}/participate/`, {"type" : "interested"})
+    .then((res) => {
+        dispatch(interestEvent_(res.data));
+});
+
+export const cancelPreference_ = () => ({
+    type: actionTypes.CANCEL_PREFERENCE,
+});
+
+export const cancelPreference = (id) => (dispatch) => axios.post(`/api/events/${id}/participate/`, {"type" : null})
+.then((res) => {
+    dispatch(cancelPreference_(res.data));
+});
